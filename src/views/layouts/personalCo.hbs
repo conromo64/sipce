@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cocina</title>
+    <!--Vinculo con la hoja de estilos-->
+    <link rel="stylesheet" href="/css/design.css">
+    <!--Icono de la página-->
+    <link rel="icon" href="/images/logoIco.ico">
+</head>
+
+<nav>
+
+    <ul class="marca">
+        <li class="marca_logo">
+            <a href="/"><img src="/images/logoIco.ico" alt="" class="logo"></a>
+        </li>
+    </ul>
+
+    {{#if menu}}
+    <a href="#ped_proceso" class="btn-ppen" id="btn-pedidos">Pedidos pendientes</a>
+    {{/if}}
+
+    <!--USUARIO-->
+    <ul class="info_usuario">
+        <li class="elemento_usuario elem">
+            Hola {{name}}
+        </li>
+        <li class="elemento_usuario">
+            <img src="/images/persona.png" alt="" class="icono_usuario" id="userIcon">
+            
+            
+        </li>
+    </ul>
+
+
+
+    <div class="menu-escondido" id="subMenu">
+        <div class="sub-menu">
+            <h3 class="isaac">Hola {{name}}</h3>
+            <div class="max">
+                <h3>{{name}}</h3>
+                <h3>Personal de caja</h3>
+                <a href="/logout" class="btn-cerrarSesion">Cerrar sesión</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="usu">
+        <h2>Cocina</h2>
+    </div>
+
+    </nav>
+
+<body>
+    {{{body}}}
+</body>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  var button = document.getElementById("btn-pedidos");
+  var isToggle = false;
+
+  button.addEventListener("click", function(e) {
+    e.preventDefault(); // Evita que el enlace funcione como un enlace normal
+
+    var pedProcesoSection = document.getElementById("ped_proceso");
+
+    if (isToggle) { 
+      button.textContent = "Pedidos en proceso";
+      pedProcesoSection.scrollIntoView({ behavior: "smooth" });
+    } else {
+      button.textContent = "Pedidos pendientes";
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    isToggle = !isToggle;
+  });
+});
+        document.addEventListener("DOMContentLoaded", function () {
+        let subMenu = document.getElementById("subMenu");
+        let menuIcon = document.getElementById("userIcon");
+
+        function toggleMenu(event) {
+            event.stopPropagation();
+            subMenu.classList.toggle("open-menu");
+        }
+
+        menuIcon.addEventListener("click", toggleMenu);
+
+        document.addEventListener("click", function (event) {
+            if (!subMenu.contains(event.target) && !menuIcon.contains(event.target)) {
+                subMenu.classList.remove("open-menu");
+            }
+        });
+    });
+
+    document.addEventListener("DOMContentLoaded", function () {
+        let subMenu = document.getElementById("subMenu");
+        let menuIcon = document.getElementById("menuIcon");
+
+        function toggleMenu(event) {
+            event.stopPropagation();
+            subMenu.classList.toggle("open-menu");
+        }
+
+        menuIcon.addEventListener("click", toggleMenu);
+
+        document.addEventListener("click", function (event) {
+            if (!subMenu.contains(event.target) && !menuIcon.contains(event.target)) {
+                subMenu.classList.remove("open-menu");
+            }
+        });
+    });
+</script>
+<script src="/socket.io/socket.io.js"></script>
+<script>
+    const socket = io();
+
+    socket.on('reloadC', (msg) => {
+        location.reload()
+    });
+</script>
+
+</html>

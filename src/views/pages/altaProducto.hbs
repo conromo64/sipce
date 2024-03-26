@@ -1,0 +1,82 @@
+<script src="/js/validacionArticulo.js"></script>
+<div class="cont-g">
+	<div class="cont-ed-per">
+		<div class="titulo-ed-per">
+			<p>Registro de Producto</p>
+		</div>
+		<!-- Llama a un archivo js-->
+		<!-- Se crea un formulario con la funcion de editar -->
+		<form class="form-a" action="/registraMen" method="post" enctype="multipart/form-data"
+			onsubmit="return validar ();">
+
+
+			<div class="pipipi">
+				<label for="nombre"> Nombre </label>
+				<input type="text" id="nombre" name="nombre" pattern="[A-Z a-z áéíóúÁÉÍÓÚñÑ]*" minlength="3"
+					maxlength="30" required>
+			</div>
+
+			<div class="pipipi">
+				<label for="tipo">Tipo de articulo</label>
+				<select name="tipo" required>
+					<option disabled>Seleccione el tipo de articulo</option>
+					{{#each per}}
+					<option value="{{tipo}}">{{descripcion_tip}}</option>
+					{{/each}}
+				</select>
+			</div>
+
+			<div class="pipipi">
+				<label for="descripcion"> Descripcion </label>
+				<input id="descripcion" type="text" name="descripcion" minlength="4" maxlength="1000" required>
+			</div>
+
+			<div class="pipipi">
+				<label for="costo"> Costo </label>
+				<input id="costo" type="money" name="costo" minlength="1" maxlength="100" pattern="[0-9]+"
+					title="Pon numeros" required>
+			</div>
+
+			<div class="pipipi">
+				<label for="precio"> Precio </label>
+				<input id="precio" type="money" name="precio" minlength="1" maxlength="40" pattern="[0-9]+"
+					title="Pon numeros" required>
+			</div>
+
+
+			<div class="pipipi">
+				<label for="existencia"> Existencia </label>
+				<input id="existencia" name="existencia" minlength="1" maxlength="1000" pattern="[0-9]+"
+					title="Pon numeros" required>
+			</div>
+
+			<div class="pipipi">
+				<label for="unidad"> Tipo unidad </label>
+				<select name="unidad" required>
+					<option disabled>Seleccione el tipo de articulo</option>
+					{{#each uni}}
+					<option value="{{unidad}}">{{nombre_uni}}</option>
+					{{/each}}
+				</select>
+			</div>
+
+			<div class="pipipi">
+				<label class="form-label">Imagen</label>
+				<div id="div-file">
+					<p id="texto">Agregar archivo</p>
+					<input class="btn-img" type="file" id="btn-enviar" name="image" accept=".jpg, .jpeg, .png">
+				</div>
+			</div>
+
+			<input type="hidden" name="activo" value="1">
+
+			{{#if error}}
+			<p class="submitError">{{error}}</p>
+			{{/if}}
+
+			<div class="cont-btn-gc">
+				<input type="submit" value="Registrar nuevo Producto" class="btn-g-c-3" id="btnRegProducto">
+			</div>
+		</form>
+	</div>
+</div>

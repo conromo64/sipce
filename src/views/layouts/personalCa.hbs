@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caja</title>
+    <link rel="stylesheet" href="/css/styles-pe.css">
+    <link rel="icon" href="/images/logoIco.ico">
+    <script src="/js/qrCode.min.js"></script>
+</head>
+
+<header>
+    <nav>
+
+        <!--MARCA-->
+        <ul class="marca">
+            <li class="marca_logo">
+                {{#if menu}}
+                <a href="/detallecaja/{{per.[0].Folio}}"><img src="/images/logoIco.ico" alt="" class="logo"></a>
+                {{else}}
+                <a href="/"><img src="/images/logoIco.ico" alt="" class="logo"></a>
+                {{/if}}
+            </li>
+        </ul>
+        {{#if busca}}
+        <!--Buscador-->
+        <div class="barraBusqueda">
+            <img src="/images/lupa.png" class="iconoBusqueda">
+            <input id="buscador" type="text" class="busBox" placeholder="Buscar {{busca}}">
+        </div>
+        {{/if}}
+        {{#if qr}}
+        <!--Qr-->
+        <div class="rqr">
+            <a href="/qrcaja">
+                <div class="iconoFondoBlanco">
+                    <img src="/images/icons8-qr-50.png" class="iconoQR">
+                </div>
+            </a>
+        </div>
+        {{/if}}
+        <!--USUARIO-->
+        <ul class="info_usuario">
+            <li class="elemento_usuario-n">
+                Hola {{name}}
+            </li>
+            <li class="elemento_usuario">
+                <img src="/images/persona.png" alt="" class="icono_usuario" id="userIcon">
+
+            </li>
+        </ul>
+
+
+        <div class="menu-escondido" id="subMenu">
+            <div class="sub-menu">
+                <h3>{{name}}</h3>
+                <h3>Personal de caja</h3>
+                <a href="/logout" class="btn-cerrarSesion">Cerrar sesión</a>
+            </div>
+        </div>
+
+
+    </nav>
+    <!--Espacio para indicar el rol en el que se encuentra-->
+    <div class="rol_usuario">
+        <h2 class="rol_caja">
+            Caja
+        </h2>
+    </div>
+</header>
+
+<body>
+    {{{body}}}
+</body>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        let subMenu = document.getElementById("subMenu");
+        let menuIcon = document.getElementById("userIcon");
+
+        function toggleMenu(event) {
+            event.stopPropagation();
+            subMenu.classList.toggle("open-menu");
+        }
+
+        menuIcon.addEventListener("click", toggleMenu);
+
+        document.addEventListener("click", function (event) {
+            if (!subMenu.contains(event.target) && !menuIcon.contains(event.target)) {
+                subMenu.classList.remove("open-menu");
+            }
+        });
+    });
+
+    document.addEventListener("DOMContentLoaded", function () {
+        let subMenu = document.getElementById("subMenu");
+        let menuIcon = document.getElementById("menuIcon");
+
+        function toggleMenu(event) {
+            event.stopPropagation();
+            subMenu.classList.toggle("open-menu");
+        }
+
+        menuIcon.addEventListener("click", toggleMenu);
+
+        document.addEventListener("click", function (event) {
+            if (!subMenu.contains(event.target) && !menuIcon.contains(event.target)) {
+                subMenu.classList.remove("open-menu");
+            }
+        });
+    });
+
+</script>
+
+</html>

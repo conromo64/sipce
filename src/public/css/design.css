@@ -1,0 +1,3034 @@
+* {
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+    font-family: 'Nunito', sans-serif;
+}
+
+/*Configuracion del cuerpo de la página*/
+body {
+    background: rgb(255, 255, 255);
+}
+
+
+nav {
+    top: 0;
+    width: 100%;
+    background: rgb(13, 59, 111);
+    display: flex;
+    justify-content: space-between;
+    position: fixed;
+    align-items: center;
+    height: 80px;
+    padding: 0 5%;
+}
+
+/*Espacio para dar clic en el boton que desplaza el menú*/
+.checkbtn {
+    float: right;
+    cursor: pointer;
+    display: none;
+    padding: 10px 0px;
+}
+
+/**/
+#check {
+    display: none;
+}
+
+nav .marca {
+    align-items: center;
+}
+
+/*Configuración del logo del sistema*/
+.logo {
+    height: 60px;
+}
+
+/*Configuración del contenedor para (elemento_usuario)*/
+nav .info_usuario {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+nav .info_usuario .elemento_usuario {
+    color: white;
+    margin: 0 10px;
+    font-weight: 700;
+}
+
+.icono_usuario {
+    height: 60px;
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+.menu-escondido {
+    position: absolute;
+    top: 108px;
+    left: 70%;
+    width: 295px;
+    background-color: #e3e4e4;
+    border-radius: 10%;
+    max-height: 0px;
+    overflow: hidden;
+    transition: max-height 0.45s;
+    z-index: 2;
+}
+
+.menu-escondido.open-menu {
+    max-height: 400px;
+    z-index: 2;
+}
+
+.sub-menu {
+    background-color: #f3f3f3;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 10%;
+    z-index: 2;
+}
+
+.sub-menu h3 {
+    margin-bottom: 10px;
+}
+
+.usu {
+    margin: 0;
+    padding: 0;
+    top: 10%;
+    background-color: rgb(186, 216, 249);
+    width: 210%;
+    position: fixed;
+    margin-left: -5%;
+
+}
+
+.usu h2 {
+    margin-left: 20px;
+}
+
+
+.usu1 {
+    margin: 0;
+    padding: 0;
+    margin-top: 0.4%;
+    top: 10%;
+    background-color: rgb(186, 216, 249);
+    width: 210%;
+    position: fixed;
+    margin-left: -5%;
+
+}
+
+.usu1 h2 {
+    margin-left: 20px;
+}
+
+.usu2 {
+    margin: 0;
+    padding: 0;
+    margin-top: 0.4%;
+    top: 10%;
+    background-color: rgb(186, 216, 249);
+    width: 210%;
+    position: fixed;
+    margin-left: -5%;
+
+}
+
+.usu2 h2 {
+    margin-left: 20px;
+}
+
+
+
+/*CONTENIDO*/
+
+.contenedor_general {
+    width: 90%;
+    padding-top: 130px;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+}
+
+.contenedor_izquierdo {
+    width: 45%;
+    margin-left: 2.5%;
+    margin-right: 2.5%;
+}
+
+.nombre_pedidos_pendientes {
+    color: white;
+    background: black;
+    width: 100%;
+    border-radius: 10px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    font-size: 30px;
+    font-weight: 800;
+    text-align: center;
+}
+
+.contenedor_derecho {
+    width: 45%;
+    margin-left: 2.5%;
+    margin-right: 2.5%;
+}
+
+.nombre_pedidos_proceso {
+    color: white;
+    background: rgb(27, 27, 27);
+    width: 100%;
+    border-radius: 10px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    font-size: 30px;
+    font-weight: 800;
+    text-align: center;
+}
+
+
+
+
+.caja_info-ppe {
+    background-color: #f3f3f3;
+    border-radius: 10px;
+    border: 3px solid #f3f3f3;
+    font-size: 20px;
+    text-align: center;
+    margin-top: 25px;
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    display: flex;
+    flex-direction: row;
+    box-shadow: 2px 4px 15px 0px rgb(214, 214, 214);
+    justify-content: space-between;
+}
+
+.caja_folio-ppe {
+    color: white;
+    background: rgb(107, 148, 186);
+    padding: 5px 40px;
+    border-radius: 4px;
+    font-weight: 700;
+}
+
+.caja_total-ppe {
+    background: rgb(120, 163, 203);
+    color: white;
+    padding: 5px 30px;
+    border-radius: 4px;
+    font-weight: 700;
+    margin-left: -22px;
+}
+
+.caja_acciones-ppe {
+    background: rgb(209, 209, 209);
+    padding: 5px 60px;
+    border-radius: 4px;
+    font-weight: 700;
+}
+
+/*Contenedor para los pedidos*/
+.caja-pedidos-ppe {
+    width: 100%;
+    margin-top: 25px;
+
+}
+
+.pedido_pendiente {
+    background-color: #f3f3f3;
+    border-radius: 10px;
+    border: 3px solid #f3f3f3;
+    flex-direction: column;
+    align-items: center;
+    font-size: 20px;
+    text-align: center;
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    margin-bottom: 25px;
+    display: flex;
+    flex-direction: row;
+    box-shadow: 2px 4px 15px 0px rgb(214, 214, 214);
+    justify-content: space-between;
+}
+
+.espacio_folio-ppe {
+    background: rgb(209, 209, 209);
+    padding: 5px 40px;
+    border-radius: 4px;
+    font-weight: 700;
+}
+
+
+.espacio_total-ppe {
+    background: rgb(209, 209, 209);
+    padding: 5px 30px;
+    border-radius: 4px;
+    font-weight: 700;
+    margin-left: 12%;
+}
+
+.espacio_acciones-ppe {
+    width: 100%;
+    text-align: center;
+    margin-top: 10px;
+  }
+
+.btn-ver_pedido-ppe  {
+    background-color: rgb(11, 87, 175);
+    color: white;
+    padding: 10px 60px;
+    border-radius: 40px;
+    font-weight: 700;
+    cursor: pointer;
+    margin-left: 24%;
+    white-space: nowrap;
+}
+
+
+.caja_info-ppr {
+    background-color: #f3f3f3;
+    border-radius: 10px;
+    border: 3px solid #f3f3f3;
+    font-size: 20px;
+    text-align: center;
+    margin-top: 25px;
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    display: flex;
+    flex-direction: row;
+    box-shadow: 2px 4px 15px 0px rgb(214, 214, 214);
+    justify-content: space-between;
+}
+
+.caja_folio-ppr {
+    color: white;
+    background: rgb(107, 148, 186);
+    padding: 5px 40px;
+    border-radius: 4px;
+    font-weight: 700;
+}
+
+.caja_total-ppr {
+    background: rgb(120, 163, 203);
+    color: white;
+    padding: 5px 30px;
+    border-radius: 4px;
+    font-weight: 700;
+    margin-left: -22px;
+}
+
+.caja_acciones-ppr {
+    background: rgb(209, 209, 209);
+    padding: 5px 60px;
+    border-radius: 4px;
+    font-weight: 700;
+}
+
+/*Contenedor para los pedidos*/
+.caja-pedidos-ppr {
+    width: 100%;
+    margin-top: 25px;
+}
+
+.pedido_proceso {
+    background-color: #f3f3f3;
+    border-radius: 10px;
+    border: 3px solid #f3f3f3;
+    font-size: 20px;
+    text-align: center;
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    margin-bottom: 25px;
+    display: flex;
+    flex-direction: row;
+    box-shadow: 2px 4px 15px 0px rgb(214, 214, 214);
+    justify-content: space-between;
+}
+
+.espacio_folio-ppr {
+    background: rgb(209, 209, 209);
+    padding: 5px 40px;
+    border-radius: 4px;
+    font-weight: 700;
+}
+
+.espacio_total-ppr {
+    background: rgb(209, 209, 209);
+    padding: 5px 30px;
+    border-radius: 4px;
+    font-weight: 700;
+}
+
+
+
+.btn-l a {
+    /*background-color: #0b6c1489;*/
+    background-color: #c9a14e;
+    cursor: pointer;
+    margin-top: -60px;
+    position: absolute;
+    margin-left: 10px;
+    width: 15%;
+    padding: 0.8%;
+    text-align: center;
+    border-radius: 20px;
+    white-space: nowrap;
+    color: #000000;
+    font-size: 120%;
+}
+
+
+.btn-l1 a {
+    background-color: rgb(11, 87, 175);
+    cursor: pointer;
+    padding-top:  -50px;
+    position: absolute;
+    margin-left: 50px;
+    width: 15%;
+    padding: 0.8%;
+    text-align: center;
+    border-radius: 20px;
+    white-space: nowrap;
+    color: white;
+    font-size: 120%;
+    margin-top: -5%;
+    font-weight: 700;
+}
+
+.btn-l2 a {
+    border: 2px solid rgb(11, 87, 175);
+    background-color: rgb(153, 183, 255);
+    cursor: pointer;
+    margin-top: -50px;
+    position: absolute;
+    margin-left: 50px;
+    width: 15%;
+    padding: 0.8%;
+    text-align: center;
+    border-radius: 20px;
+    white-space: nowrap;
+    color: #000000;
+    font-size: 120%;
+    margin-top: -5%;
+}
+
+.btn-ver_pedido-ppr {
+    border: 2px solid rgb(11, 87, 175);
+    background-color: rgb(255, 255, 255);
+    padding: 10px 60px;
+    border-radius: 40px;
+    font-weight: 700;
+    cursor: pointer;
+    margin-left: -1%;
+    white-space: nowrap;
+}
+
+
+
+h1 {
+    margin-bottom: 30px;
+}
+
+section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100%;
+    width: 100%;
+    padding: 20px;
+}
+
+.header {
+    background-color: #c9a14e;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 85px;
+    padding: 5px 10%;
+}
+
+.header .logo {
+    cursor: pointer;
+    order: 3;
+    margin-left: auto;
+}
+
+.header .logo img {
+    height: 70px;
+    width: auto;
+    position: relative;
+    left: -1600%;
+}
+
+
+.header .nav-links li {
+    display: inline-block;
+    padding: 0 20px;
+}
+
+.header .nav-links li:nth-child(1) {
+    padding: 0 20px 0 0;
+}
+
+.header .nav-links li:hover {
+    transform: scale(1.1);
+}
+
+.header .nav-links a {
+    font-size: 700;
+    color: #eceff1;
+    text-decoration: none;
+}
+
+.header .nav-links li a:hover {
+    color: #ffbc0e;
+}
+
+.header .btn {
+    order: 2;
+}
+
+.header .btn button {
+    width: 170px;
+    margin-left: 20px;
+    font-weight: 700;
+    color: #1b3039;
+    padding: 5px 20px;
+    background: #ece5d0;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+}
+
+.header .btn button:hover {
+    background-color: #e2f1f8;
+    color: #000000;
+    transform: scale(1.1);
+}
+
+h1 {
+    margin-bottom: 30px;
+}
+
+section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100%;
+    width: 100%;
+    padding: 20px;
+}
+
+.container {
+    width: 800px;
+    padding: auto;
+    background-color: white;
+    box-shadow: 5px 10px 15px 15px rgb(214 214 214);
+    justify-content: center;
+    border-radius: 20px;
+    align-items: center;
+    margin-top: 110px;
+}
+
+.info-folio {
+    display: inline-flex;
+    margin-bottom: 5px;
+    text-align: center;
+    
+}
+
+.folio h1 {
+    margin: 15px 20px;
+    font-size: 25px;
+}
+
+.info p {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.info p:not(:first-child) {
+    margin-top: 10px;
+}
+
+.flex-box-info {
+    background-color: white;
+    max-width: 98%;
+    border-radius: 10px;
+    border: 1px solid white;
+    font-size: 30px;
+    text-align: center;
+    margin: 10px;
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.box-Pr {
+    background-color: #f3f3f3;
+    width: 45%;
+    color: #444444;
+    border: 3px solid #f3f3f3;
+    font-size: 20px;
+    text-align: center;
+    margin: 15px;
+    border-radius: 7px;
+    font-weight: 700;
+}
+
+.box-Ca {
+    background-color: #f3f3f3;
+    width: 20%;
+    color: #444444;
+    border: 3px solid #f3f3f3;
+    font-size: 20px;
+    text-align: center;
+    margin: 15px;
+    margin-left: 10px;
+    border-radius: 7px;
+    font-weight: 700;
+}
+
+.box-To {
+    background-color: #f3f3f3;
+    width: 25%;
+    color: #444444;
+    border: 3px solid #f3f3f3;
+    font-size: 20px;
+    text-align: center;
+    margin: 15px;
+    margin-top: 15px;
+    margin-left: 10px;
+    border-radius: 7px;
+    font-weight: 700;
+}
+
+.flex-box-i {
+    background-color: white;
+    width: 98%;
+    border-radius: 10px;
+    border: 3px solid white;
+    font-size: 30px;
+    text-align: center;
+    margin: 10px;
+    margin-top: 15px;
+    display: flex;
+}
+
+.b-Pr {
+    width: 45%;
+    color: rgb(0, 0, 0);
+    border: 3px solid white;
+    font-size: 20px;
+    text-align: center;
+    margin: 15px;
+    border-radius: 7px;
+
+}
+
+.b-Ca {
+    width: 20%;
+    color: rgb(0, 0, 0);
+    border: 3px solid white;
+    font-size: 20px;
+    text-align: center;
+    margin: 15px;
+    border-radius: 7px;
+
+}
+
+.b-To {
+    width: 25%;
+    color: rgb(0, 0, 0);
+    border: 3px solid white;
+    font-size: 20px;
+    text-align: center;
+    margin: 15px;
+    border-radius: 7px;
+}
+
+.b-To-2 {
+    background-color: #f3f3f3;
+    width: 25%;
+    color: rgb(0, 0, 0);
+    border: 3px solid #f3f3f3;
+    font-size: 20px;
+    text-align: center;
+    margin: 15px;
+    border-radius: 7px;
+}
+
+.b-To-to {
+    background-color: #f3f3f3;
+    width: 25%;
+    color: rgb(0, 0, 0);
+    border: 3px solid #f3f3f3;
+    font-size: 20px;
+    text-align: center;
+    margin: 15px;
+    border-radius: 7px;
+    margin-left: -25%;
+   margin-top: -8%;
+   margin-bottom: 10%;
+}
+
+
+.btn button {
+    background-color: #d8bc5e;
+    width: 25%;
+    margin-left: 30px;
+    margin-right: 10px;
+    margin-bottom: 20px;
+    font-weight: 600;
+    font-size: 20px;
+    color: #000000;
+    padding: 8px 5px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+    text-align: center;
+}
+
+
+.progress-barp {
+    display: block;
+    background-color: transparent;
+    height: 40px;
+    padding: 15px;
+    width: 180px;
+    margin: 40px;
+    border-radius: 10px;
+    margin-left: 590px;
+    margin-top: -50px;
+    box-shadow: 0 1px 5px #8f8d8d inset, 0 1px 0 #aea7a7;
+
+}
+
+.progress-barp a {
+    display: block;
+    padding: 3px;
+    font-size: 17px;
+    margin-top: -18px;
+    left: 10px;
+}
+
+.progress-barp .line {
+    width: 150px;
+    height: 13px;
+    border-radius: 10px;
+    background-color: rgb(255, 238, 0);
+    margin: 10;
+}
+
+
+.progress-baro {
+    display: block;
+    background-color: transparent;
+    height: 40px;
+    padding: 15px;
+    width: 180px;
+    margin: 40px;
+    border-radius: 10px;
+    margin-left: 590px;
+    margin-top: -50px;
+    box-shadow: 0 1px 5px #8f8d8d inset, 0 1px 0 #aea7a7;
+
+}
+
+.progress-baro a {
+    display: block;
+    padding: 3px;
+    font-size: 17px;
+    margin-top: -18px;
+    left: 10px;
+}
+
+.progress-baro .line {
+    width: 150px;
+    height: 13px;
+    border-radius: 10px;
+    background-color: rgb(255, 42, 0);
+    margin: 10;
+}
+
+.btn-ppen{
+    background: rgb(213, 233, 252);
+    width: 45%;
+    border-radius: 20px;
+    padding: 7px;
+    color: rgb(0, 0, 0);
+    margin-left: 2%;
+    white-space: nowrap;
+}
+
+.btn-cerrarSesion {
+    display: inline-block;
+    padding: 10px 20px;
+    background: rgb(107, 148, 186);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+
+
+
+
+@media (min-width: 768px) {
+    .icono_responsivo {
+        display: none;
+    }
+
+    .icono_responsivomenu {
+        display: none;
+    }
+
+    .btn-ppen{
+        display: none;
+    }
+
+    .icono_usuario {
+        display: inline;
+    }
+
+    
+
+    .elemento_usuario {
+        display: inline;
+    }
+
+    .elem {
+        display: inline;
+    }
+
+    .menu-escondido .icono_usuarioR {
+        display: none;
+    }
+
+    .menu-escondido .isaac {
+        display: none;
+    }
+
+    
+
+
+    
+
+}
+
+
+
+
+@media only screen and (min-width: 600px) and (max-width: 768px){
+
+    
+
+
+    .isaac{
+        display: none;
+    }
+
+    .icono_usuarioR{
+        display: none;
+    }
+
+    .menu-escondido{
+        margin-left: -10%;
+    }
+
+
+    .icono_responsivomenu{
+        display: none;
+    }
+
+    .icono_responsivo{
+        display: none;
+    }
+
+    .container{
+        width: 115%;
+        margin-left: 10%;
+    }
+
+    .progress-barp{
+        margin-left: 60%;
+    }
+
+    .progress-baro{
+        margin-left: 60%;
+    }
+
+    .btn-l1 a{
+        width: 20%;
+        margin-top: -7%;
+    }
+
+    .btn-l2 a{
+        width: 30%;
+        margin-top: -7%;
+    }
+
+    
+
+    .b-To-to{
+        margin-left: -27%;
+        margin-top: -10.4%;
+        margin-bottom: 12%;
+    }
+    
+
+    .btn-ppen{
+        display: none;
+    }
+
+    .nombre_pedidos_pendientes{
+        width: 145%;
+        margin-left: -12%;
+        white-space: nowrap;
+    }
+
+    .nombre_pedidos_proceso{
+        width: 145%;
+        white-space: nowrap;
+        margin-left: 27%;
+    }
+
+    .caja_info-ppe{
+        width: 145%;
+        margin-left: -12%;
+    }
+
+    .caja_info-ppr{
+        width: 145%;
+        margin-left: 27%;
+    }
+
+    .pedido_pendiente{
+        width: 145%;
+        margin-left: -12%;
+    }
+
+    .pedido_proceso{
+        width: 145%;
+        margin-left: 27%;
+    }
+
+
+
+    .caja_folio-ppe{
+       width: 30%;
+    }
+
+    .caja_folio-ppr{
+        width: 30%;
+    }
+
+    .caja_total-ppr{
+        width: 30%;
+        margin-left: 1%;
+    }
+
+
+    .caja_total-ppe{
+        width: 30%;
+        margin-left: 1%;
+    }
+
+    .caja_acciones-ppe{
+        width: 39%;
+        display: flex;
+        margin-left: 1%;
+        text-align: center;
+        justify-content: center;
+        
+    }
+
+    .caja_acciones-ppr{
+        width: 39%;
+        display: flex;
+        margin-left: 1%;
+        text-align: center;
+        justify-content: center;
+        
+    }
+
+    .espacio_total-ppe{
+        margin-left: 4%;
+    }
+
+    .espacio_total-ppr{
+        margin-left: 4%;
+    }
+
+    .btn-ver_pedido-ppe{
+        padding: 4%;
+        display: flex;
+        margin-left: 10%;
+        width: 90%;
+        margin-top: -7%;
+        text-align: center;
+        justify-content: center;
+        
+    }
+
+    .btn-ver_pedido-ppr{
+        padding: 4%;
+        display: flex;
+        margin-left: -10%;
+        width: 110%;
+        margin-top: 3%;
+        text-align: center;
+        justify-content: center;
+        white-space: nowrap;
+        
+    }
+
+    .usu{
+        top: 7% !important;
+    }
+
+    .usu1{
+        top: 9% !important;
+    }
+
+    .usu2{
+        top: 7% !important;
+    }
+}
+
+
+
+
+
+
+
+
+@media only screen and (min-width: 769px) and (max-width: 1100px){
+    
+    .icono_responsivomenu{
+        display: none;
+    }
+
+    .usu{
+        top: 7% !important;
+    }
+
+    .usu1{
+        top: 5.5% !important;
+    }
+
+    .usu2{
+        top: 5.7% !important;
+    }
+
+    .icono_responsivo{
+        display: none;
+    }
+
+    .btn-ppen{
+        display: none;
+    }
+
+    .nombre_pedidos_pendientes{
+        width: 145%;
+        margin-left: -12%;
+        white-space: nowrap;
+    }
+
+    .nombre_pedidos_proceso{
+        width: 145%;
+        white-space: nowrap;
+        margin-left: 27%;
+    }
+
+    .menu-escondido{
+        margin-left: -16%;
+    }
+
+    .caja_info-ppe{
+        width: 145%;
+        margin-left: -12%;
+    }
+
+    .caja_info-ppr{
+        width: 145%;
+        margin-left: 27%;
+    }
+
+    .pedido_pendiente{
+        width: 145%;
+        margin-left: -12%;
+    }
+
+    .pedido_proceso{
+        width: 145%;
+        margin-left: 27%;
+    }
+
+    .btn-l2 a{
+        width: 30%;
+        margin-top: -7%;
+    }
+
+
+    .caja_folio-ppe{
+       width: 25%;
+    }
+
+    .caja_total-ppe{
+        width: 30%;
+     }
+
+    .caja_folio-ppr{
+        width: 25%;
+    }
+
+    .caja_total-ppr{
+        width: 20%;
+        margin-left: 1%;
+    }
+
+
+    .caja_total-ppe{
+        width: 20%;
+        margin-left: 1%;
+    }
+
+    .caja_total-ppr{
+        width: 20%;
+        margin-left: 1%;
+    }
+    
+
+    .caja_acciones-ppe{
+        width: 50%;
+        display: flex;
+        margin-left: 1%;
+        text-align: center;
+        justify-content: center;
+        
+    }
+
+    .caja_acciones-ppr{
+        width: 50%;
+        display: flex;
+        margin-left: 1%;
+        text-align: center;
+        justify-content: center;
+        
+    }
+
+    .espacio_total-ppe{
+        margin-left: 5%;
+        width: 30%;
+    }
+
+    .espacio_folio-ppe{
+        margin-left: -1%;
+        width: 30%;
+    }
+
+
+
+    .espacio_folio-ppr{
+        margin-left: 1%;
+        width: 25%;
+    }
+
+    .espacio_total-ppr{
+        margin-left: -20%;
+        width: 20%;
+    }
+
+
+    .espacio_acciones-ppe{
+        margin-top: 1%;
+    }
+
+
+
+
+    .btn-ver_pedido-ppe{
+        padding: 6%;
+        margin-left: 23%;
+        width: 60%;
+        margin-top: -3%;
+        text-align: center;
+        justify-content: center;
+        font-size: 100%;
+        
+    }
+
+    .btn-ver_pedido-ppr{
+        padding: 10%;
+        margin-left: -100%;
+        width: 260%;
+        margin-top: -2%;
+        text-align: center;
+        justify-content: center;
+        font-size: 100%;
+
+        
+        
+    }
+
+   
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*tablets */
+
+/*@media only screen and (min-width: 768px) and (max-width: 1024px){
+    .usu{
+        margin-top: 9%;
+    }
+
+    .menu-escondido{
+        margin-left: -10%;
+    }
+
+    
+    .nombre_pedidos_pendientes{
+        margin-left: -12%;
+        width: 115%;
+    }
+
+    .nombre_pedidos_proceso{
+        width: 115%;
+        margin-left: -1%;
+    }
+
+    .caja_info-ppe{
+        margin-left: -12% ;
+        width: 115%;
+    }
+
+    .pedido_pendiente{
+        margin-left: -12% ;
+        width: 115%;
+    }
+
+    .espacio_folio-ppe{
+        margin-left: -4%;
+    }
+
+    .caja_folio-ppe{
+        width: 30%;
+        margin-left: -3%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .caja_total-ppe{
+        width: 30%;
+        margin-left: -1%;
+    }
+
+    .caja_acciones-ppe{
+        width: 10%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+    }
+
+    .espacio_total-ppe{
+        margin-left: 2%;
+    }
+
+    .btn-ver_pedido-ppe{
+        margin-left: 10%;
+        padding: 10px;
+
+    }
+
+    .btn-ver_pedido-ppr{
+        white-space: nowrap;
+        padding: 10px;
+        margin-left: 8%;
+    }
+
+
+    .caja_info-ppr{
+        margin-left: -1% ;
+        width: 115%;
+    }
+
+    .pedido_proceso{
+        width: 115%;
+    }
+
+
+    .caja_folio-ppr{
+        
+        width: 30%;
+        margin-left: -3%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .caja_total-ppr{
+        width: 30%;
+        margin-left: -1%;
+    }
+
+    .caja_acciones-ppr{
+        width: 10%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+    }
+
+    .espacio_folio-ppr{
+        margin-left: -4%;
+    }
+
+    
+    .container{
+        width: 100%;
+
+    }
+
+    .progress-barp{
+        margin-left: 70%;
+    }
+
+    .progress-baro{
+        margin-left: 70%;
+    }
+
+    .btn-l1 a{
+        padding: 1%;
+        width: 25%;
+        margin-left: 10%;
+    }
+
+    .btn-l2 a{
+        padding: 1%;
+        width: 25%;
+        margin-left: 10%;
+    }
+}
+
+
+@media(max-width: 1024px) {
+    .usu{
+        margin-top: 7.8%;
+    }
+}
+
+@media(max-width: 770px) {
+    .usu{
+        margin-top: 10%;
+    }
+
+
+}*/
+
+
+
+ 
+
+
+@media only screen and (min-width: 1600px) and (max-width: 2100px){
+    .usu{
+        top: 8.7%;
+    }
+
+    .usu1{
+        top: 6% !important;
+    }
+
+    .usu2{
+        top: 6% !important;
+    }
+}
+
+
+
+
+
+
+@media (max-width: 600px) {
+    .icono_responsivo {
+       display: none;
+    }
+
+    .icono_responsivomenu {
+        display: inline;
+        width: 35%;
+        margin-left: 70%;
+        cursor: pointer;
+    }
+
+
+    .icono_usuario {
+        display: none;
+    }
+
+    .elem {
+        display: none;
+    }
+
+    .menu-escondido .icono_usuarioR {
+        display: inline;
+        width: 21%;
+        float: right;
+        margin-top: -13px;
+        border-radius: 20px;
+    }
+
+    .menu-escondido .isaac {
+        display: inline-block;
+        margin-left: 20px;
+
+
+    }
+
+    .max {
+        margin-top: 20px;
+        background-color: #fffefc;
+        border-radius: 10px;
+        padding: 20px;
+    }
+
+    .checkbtn {
+        display: none;
+    }
+
+    .conpp {
+        margin-top: 30%;
+        margin-right: 150px;
+    }
+
+    
+
+    .flex-boxqr {
+        width: 130%;
+
+    }
+
+    .box {
+        font-size: 70%;
+        margin-top: 20px;
+    }
+
+    .conqr {
+        width: 80%;
+        height: 300px;
+        margin-top: -70px;
+        margin-left: 40px;
+    }
+
+    .menu-escondido {
+        margin-left: -60%;
+        width: 80%;
+    }
+
+
+    .box-To, .b-To, .b-To-2, .b-To-to{
+        display: none;
+    }
+
+
+    .contenedor_izquierdo {
+        order: 2;
+        margin-top: 60px;
+    }
+
+    .contenedor_general {
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+        margin: auto;
+    }
+
+    .contenedor_derecho {
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .contenedor_izquierdo {
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .nombre_pedidos_proceso {
+        color: white;
+        background: rgb(27, 27, 27);
+        width: 100%;
+        border-radius: 10px;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        font-size: 20px;
+        font-weight: 800;
+        text-align: center;
+    }
+
+    .caja_info-ppr {
+        width: 100%;
+        background-color: #f3f3f3;
+        border-radius: 10px;
+        border: 3px solid #f3f3f3;
+        font-size: 20px;
+        text-align: center;
+        margin-top: 25px;
+        padding-top: 10px;
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-bottom: 10px;
+        display: flex;
+        flex-direction: row;
+        box-shadow: 2px 4px 15px 0px rgb(214, 214, 214);
+        justify-content: space-between;
+    }
+
+    .caja_folio-ppr {
+        width: 60%;
+        color: white;
+        background: rgb(107, 148, 186);
+        text-align: center;
+        border-radius: 4px;
+        font-weight: 700;
+    }
+
+    .caja_total-ppr {
+        width: 35%;
+        background: rgb(120, 163, 203);
+        border-radius: 4px;
+        font-weight: 700;
+    }
+
+    .caja_acciones-ppr {
+        display: none;
+    }
+
+    /*Contenedor para los pedidos*/
+    .caja-pedidos-ppr {
+        width: 100%;
+        margin-top: 25px;
+    }
+
+    .pedido_proceso {
+        width: 100%;
+        font-size: 20px;
+        text-align: center;
+        padding-top: 10px;
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-bottom: 10px;
+        margin-bottom: 25px;
+        display: flex;
+        flex-direction: column;
+        box-shadow: 2px 4px 15px 0px rgb(214, 214, 214);
+        justify-content: space-between;
+    }
+
+    .datos {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .espacio_folio-ppr {
+        width: 60%;
+        background: rgb(209, 209, 209);
+        padding-top: 10px;
+        padding-bottom: 10px;
+        text-align: center;
+        border-radius: 5px;
+        font-weight: 700;
+      }
+      
+      .espacio_total-ppr {
+        width: 35%; 
+        background: rgb(209, 209, 209);
+        padding-top: 10px;
+        padding-bottom: 10px;
+        text-align: center;
+        border-radius: 5px;
+        font-weight: 700;
+        margin-top: -14%; 
+        margin-left: 65%;
+      }
+      
+
+    .espacio_acciones-ppr {
+        margin-top: 20px;
+    }
+
+    .btn-ver_pedido-ppr {
+        background: rgb(255, 255, 255);
+        width: 40%;
+        margin-left: 13%;
+        margin-right: 30%;
+        margin-top: 13px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        border-radius: 40px;
+        font-weight: 700;
+        cursor: pointer;
+        white-space: nowrap;
+    }
+
+    
+
+    .nombre_pedidos_pendientes {
+        color: white;
+        background: rgb(27, 27, 27);
+        width: 100%;
+        border-radius: 10px;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        font-size: 20px;
+        font-weight: 800;
+        text-align: center;
+    }
+
+    .caja_info-ppe {
+        width: 100%;
+        background-color: #f3f3f3;
+        border-radius: 10px;
+        border: 3px solid #f3f3f3;
+        font-size: 20px;
+        text-align: center;
+        margin-top: 25px;
+        padding-top: 10px;
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-bottom: 10px;
+        display: flex;
+        flex-direction: row;
+        box-shadow: 2px 4px 15px 0px rgb(214, 214, 214);
+        justify-content: space-between;
+    }
+
+    .caja_folio-ppe {
+        width: 60%;
+        text-align: center;
+        border-radius: 4px;
+        font-weight: 700;
+    }
+
+    .caja_total-ppe {
+        width: 35%;
+        border-radius: 4px;
+        font-weight: 700;
+    }
+
+    .caja_acciones-ppe {
+        display: none;
+    }
+
+
+
+
+    /*Contenedor para los pedidos*/
+    .caja-pedidos-ppe {
+        width: 100%;
+        margin-top: 25px;
+    }
+
+    .pedido_pendiente {
+        width: 100%;
+        font-size: 20px;
+        text-align: center;
+        padding-top: 10px;
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-bottom: 10px;
+        margin-bottom: 25px;
+        display: flex;
+        flex-direction: column;
+        box-shadow: 2px 4px 15px 0px rgb(214, 214, 214);
+        justify-content: space-between;
+    }
+
+    .datos {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .espacio_folio-ppe {
+        width: 60%;
+        background: rgb(209, 209, 209);
+        padding-top: 10px;
+        padding-bottom: 10px;
+        text-align: center;
+        border-radius: 5px;
+        font-weight: 700;
+        margin-left: -40%;
+      }
+      
+      .espacio_total-ppe {
+        width: 35%; 
+        background: rgb(209, 209, 209);
+        padding-top: 10px;
+        padding-bottom: 10px;
+        text-align: center;
+        border-radius: 5px;
+        font-weight: 700;
+        margin-top: -14%; 
+        margin-left: 65%;
+      }
+
+      .espacio_acciones-ppe {
+        margin-top: 20px;
+    }
+
+    .btn-ver_pedido-ppe {
+        width: 40%;
+        margin-left: 13%;
+        margin-right: 30%;
+        margin-top: 10px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        border-radius: 40px;
+        font-weight: 700;
+        cursor: pointer;
+        white-space: nowrap;
+    }
+
+    
+    
+
+
+    .container{
+        margin-top: 30%;
+        width: 100%;
+    }
+
+    .progress-barp{
+        margin-left: 45%;
+    }
+
+    .progress-baro{
+        margin-left: 45%;
+    }
+
+    .box-Pr{
+        width: 180%;
+    }
+
+    .box-Ca{
+        width: 180%;
+    }
+
+
+    .flex-box-i{
+        width: 90%;
+    }
+
+    .b-Ca{
+        width: 10%;
+        margin-left: 20%;
+        
+    }
+
+    .btn-l1 a{
+        padding: 15px;
+        margin-left: 37px;
+        width: 70%;
+        margin-top: -17%;
+        
+    }
+
+    .btn-l2 a{
+        margin-top: -15%;
+        padding: 15px;
+        margin-left: 37px;
+        width: 70%;
+        
+    }
+
+    .usu1{
+        top: 6% !important;
+    }
+
+    .usu2{
+        top: 10% !important;
+    }
+
+}
+
+
+
+
+@media only screen and (min-width: 501px) and (max-width: 599px) {
+    .icono_responsivo {
+        display: none;
+    }
+
+    .usu{
+        top: 9% ;
+    }
+
+    .usu1{
+        top: 10% !important;
+    }
+
+    .icono_responsivomenu {
+        display: inline;
+        width: 20%;
+        margin-left: 80%;
+        cursor: pointer;
+    }
+
+
+    .icono_usuario {
+        display: inline;
+    }
+
+    .elem {
+        display: none;
+    }
+
+    .menu-escondido {
+        margin-left: -40%;
+        width: 70%;
+    }
+
+    
+
+    .menu-escondido .icono_usuarioR {
+        display: inline;
+        width: 20%;
+        float: right;
+        margin-top: -13px;
+        border-radius: 20px;
+        position: relative;
+        left: -60px; /* Ajusta el valor según sea necesario */
+    }
+    
+    
+
+    .menu-escondido .isaac {
+        display: inline-block;
+        margin-left: 20px;
+
+
+    }
+
+    .max {
+        margin-top: 20px;
+        background-color: #fffefc;
+        border-radius: 10px;
+        padding: 20px;
+    }
+
+    .checkbtn {
+        display: none;
+    }
+
+    .conpp {
+        margin-top: 30%;
+        margin-right: 150px;
+    }
+
+    
+
+    .flex-boxqr {
+        width: 130%;
+
+    }
+
+    .box {
+        font-size: 70%;
+        margin-top: 20px;
+    }
+
+    .conqr {
+        width: 80%;
+        height: 300px;
+        margin-top: -70px;
+        margin-left: 40px;
+    }
+
+    
+
+
+    .box-To, .b-To, .b-To-2, .b-To-to{
+        display: none;
+    }
+
+
+    .contenedor_izquierdo {
+        order: 2;
+        margin-top: 60px;
+    }
+
+    .contenedor_general {
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+        margin: auto;
+    }
+
+    .contenedor_derecho {
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .contenedor_izquierdo {
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .nombre_pedidos_proceso {
+        color: white;
+        background: rgb(27, 27, 27);
+        width: 100%;
+        border-radius: 10px;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        font-size: 20px;
+        font-weight: 800;
+        text-align: center;
+    }
+
+    .caja_info-ppr {
+        width: 100%;
+        background-color: #f3f3f3;
+        border-radius: 10px;
+        border: 3px solid #f3f3f3;
+        font-size: 20px;
+        text-align: center;
+        margin-top: 25px;
+        padding-top: 10px;
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-bottom: 10px;
+        display: flex;
+        flex-direction: row;
+        box-shadow: 2px 4px 15px 0px rgb(214, 214, 214);
+        justify-content: space-between;
+    }
+
+    .caja_folio-ppr {
+        width: 60%;
+        color: white;
+        background: rgb(107, 148, 186);
+        text-align: center;
+        border-radius: 4px;
+        font-weight: 700;
+    }
+
+    .caja_total-ppr {
+        width: 35%;
+        background: rgb(120, 163, 203);
+        border-radius: 4px;
+        font-weight: 700;
+    }
+
+    .caja_acciones-ppr {
+        display: none;
+    }
+
+    /*Contenedor para los pedidos*/
+    .caja-pedidos-ppr {
+        width: 100%;
+        margin-top: 25px;
+    }
+
+    .pedido_proceso {
+        width: 100%;
+        font-size: 20px;
+        text-align: center;
+        padding-top: 10px;
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-bottom: 10px;
+        margin-bottom: 25px;
+        display: flex;
+        flex-direction: column;
+        box-shadow: 2px 4px 15px 0px rgb(214, 214, 214);
+        justify-content: space-between;
+    }
+
+    .datos {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .espacio_folio-ppr {
+        width: 60%;
+        background: rgb(209, 209, 209);
+        padding-top: 10px;
+        padding-bottom: 10px;
+        text-align: center;
+        border-radius: 5px;
+        font-weight: 700;
+      }
+      
+      .espacio_total-ppr {
+        width: 35%; 
+        background: rgb(209, 209, 209);
+        padding-top: 10px;
+        padding-bottom: 10px;
+        text-align: center;
+        border-radius: 5px;
+        font-weight: 700;
+        margin-top: -10.3%; 
+        margin-left: 65%;
+      }
+      
+
+    .espacio_acciones-ppr {
+        margin-top: 20px;
+    }
+
+    .btn-ver_pedido-ppr {
+        background: rgb(255, 255, 255);
+        width: 40%;
+        margin-left: 23%;
+        margin-right: 30%;
+        margin-top: 13px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        border-radius: 40px;
+        font-weight: 700;
+        cursor: pointer;
+        white-space: nowrap;
+    }
+
+    
+
+    .nombre_pedidos_pendientes {
+        color: white;
+        background: rgb(27, 27, 27);
+        width: 100%;
+        border-radius: 10px;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        font-size: 20px;
+        font-weight: 800;
+        text-align: center;
+    }
+
+    .caja_info-ppe {
+        width: 100%;
+        background-color: #f3f3f3;
+        border-radius: 10px;
+        border: 3px solid #f3f3f3;
+        font-size: 20px;
+        text-align: center;
+        margin-top: 25px;
+        padding-top: 10px;
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-bottom: 10px;
+        display: flex;
+        flex-direction: row;
+        box-shadow: 2px 4px 15px 0px rgb(214, 214, 214);
+        justify-content: space-between;
+    }
+
+    .caja_folio-ppe {
+        width: 60%;
+        text-align: center;
+        border-radius: 4px;
+        font-weight: 700;
+    }
+
+    .caja_total-ppe {
+        width: 35%;
+        border-radius: 4px;
+        font-weight: 700;
+    }
+
+    .caja_acciones-ppe {
+        display: none;
+    }
+
+
+
+
+    /*Contenedor para los pedidos*/
+    .caja-pedidos-ppe {
+        width: 100%;
+        margin-top: 25px;
+    }
+
+    .pedido_pendiente {
+        width: 100%;
+        font-size: 20px;
+        text-align: center;
+        padding-top: 10px;
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-bottom: 10px;
+        margin-bottom: 25px;
+        display: flex;
+        flex-direction: column;
+        box-shadow: 2px 4px 15px 0px rgb(214, 214, 214);
+        justify-content: space-between;
+    }
+
+    .datos {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .espacio_folio-ppe {
+        width: 60%;
+        background: rgb(209, 209, 209);
+        padding-top: 10px;
+        padding-bottom: 10px;
+        text-align: center;
+        border-radius: 5px;
+        font-weight: 700;
+        margin-left: -40%;
+      }
+      
+      .espacio_total-ppe {
+        width: 35%; 
+        background: rgb(209, 209, 209);
+        padding-top: 10px;
+        padding-bottom: 10px;
+        text-align: center;
+        border-radius: 5px;
+        font-weight: 700;
+        margin-top: -10.7%; 
+        margin-left: 65%;
+      }
+
+      .espacio_acciones-ppe {
+        margin-top: 20px;
+    }
+
+    .btn-ver_pedido-ppe {
+        width: 40%;
+        margin-left: 22%;
+        margin-right: 30%;
+        margin-top: 10px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        border-radius: 40px;
+        font-weight: 700;
+        cursor: pointer;
+        white-space: nowrap;
+    }
+
+    
+    
+
+
+    .container{
+        margin-top: 30%;
+        width: 100%;
+    }
+
+    .progress-barp{
+        margin-left: 45%;
+    }
+
+    .progress-baro{
+        margin-left: 45%;
+    }
+
+    .box-Pr{
+        width: 180%;
+    }
+
+    .box-Ca{
+        width: 180%;
+    }
+
+
+    .flex-box-i{
+        width: 90%;
+    }
+
+    .b-Ca{
+        width: 10%;
+        margin-left: 20%;
+        
+    }
+
+    .btn-l1 a{
+        padding: 15px;
+        margin-left: 37px;
+        width: 70%;
+        margin-top: -17%;
+        
+    }
+
+    .btn-l2 a{
+        margin-top: -15%;
+        padding: 15px;
+        margin-left: 37px;
+        width: 70%;
+        
+    }
+
+}
+
+
+
+@media only screen and (min-width: 401px) and (max-width: 499px) {
+    .icono_responsivo {
+        display: none;
+    }
+
+    .usu{
+        top: 9%;
+    }
+
+    .usu1{
+        top: 9% !important;
+    }
+
+    .usu2{
+        top: 10% !important;
+    }
+
+    .icono_responsivomenu {
+        display: none;
+    }
+
+
+    .icono_usuario {
+        display: inline;
+    }
+
+    .elem {
+        display: none;
+    }
+
+    .menu-escondido {
+        margin-left: -40%;
+        width: 70%;
+    }
+
+    
+
+    .menu-escondido .icono_usuarioR {
+        display: inline;
+        width: 20%;
+        float: right;
+        margin-top: -13px;
+        border-radius: 20px;
+        position: relative;
+        left: -30px; 
+    }
+    
+    
+
+    .menu-escondido .isaac {
+        display: inline-block;
+        margin-left: 20px;
+
+
+    }
+
+    .max {
+        margin-top: 20px;
+        background-color: #fffefc;
+        border-radius: 10px;
+        padding: 20px;
+    }
+
+    .checkbtn {
+        display: none;
+    }
+
+    .conpp {
+        margin-top: 30%;
+        margin-right: 150px;
+    }
+
+    
+
+    .flex-boxqr {
+        width: 130%;
+
+    }
+
+    .box {
+        font-size: 70%;
+        margin-top: 20px;
+    }
+
+    .conqr {
+        width: 80%;
+        height: 300px;
+        margin-top: -70px;
+        margin-left: 40px;
+    }
+
+    
+
+
+    .box-To, .b-To, .b-To-2, .b-To-to{
+        display: none;
+    }
+
+
+    .contenedor_izquierdo {
+        order: 2;
+        margin-top: 60px;
+    }
+
+    .contenedor_general {
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+        margin: auto;
+    }
+
+    .contenedor_derecho {
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .contenedor_izquierdo {
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .nombre_pedidos_proceso {
+        color: white;
+        background: rgb(27, 27, 27);
+        width: 100%;
+        border-radius: 10px;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        font-size: 20px;
+        font-weight: 800;
+        text-align: center;
+    }
+
+    .caja_info-ppr {
+        width: 100%;
+        background-color: #f3f3f3;
+        border-radius: 10px;
+        border: 3px solid #f3f3f3;
+        font-size: 20px;
+        text-align: center;
+        margin-top: 25px;
+        padding-top: 10px;
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-bottom: 10px;
+        display: flex;
+        flex-direction: row;
+        box-shadow: 2px 4px 15px 0px rgb(214, 214, 214);
+        justify-content: space-between;
+    }
+
+    .caja_folio-ppr {
+        width: 60%;
+        color: white;
+        background: rgb(107, 148, 186);
+        text-align: center;
+        border-radius: 4px;
+        font-weight: 700;
+    }
+
+    .caja_total-ppr {
+        width: 35%;
+        background: rgb(120, 163, 203);
+        border-radius: 4px;
+        font-weight: 700;
+    }
+
+    .caja_acciones-ppr {
+        display: none;
+    }
+
+    /*Contenedor para los pedidos*/
+    .caja-pedidos-ppr {
+        width: 100%;
+        margin-top: 25px;
+    }
+
+    .pedido_proceso {
+        width: 100%;
+        font-size: 20px;
+        text-align: center;
+        padding-top: 10px;
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-bottom: 10px;
+        margin-bottom: 25px;
+        display: flex;
+        flex-direction: column;
+        box-shadow: 2px 4px 15px 0px rgb(214, 214, 214);
+        justify-content: space-between;
+    }
+
+    .datos {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .espacio_folio-ppr {
+        width: 60%;
+        background: rgb(209, 209, 209);
+        padding-top: 10px;
+        padding-bottom: 10px;
+        text-align: center;
+        border-radius: 5px;
+        font-weight: 700;
+      }
+      
+      .espacio_total-ppr {
+        width: 35%; 
+        background: rgb(209, 209, 209);
+        padding-top: 10px;
+        padding-bottom: 10px;
+        text-align: center;
+        border-radius: 5px;
+        font-weight: 700;
+        margin-top: -14%; 
+        margin-left: 65%;
+      }
+      
+
+    .espacio_acciones-ppr {
+        margin-top: 20px;
+    }
+
+    .btn-ver_pedido-ppr {
+        background: rgb(255, 255, 255);
+        width: 40%;
+        margin-left: 14%;
+        margin-right: 30%;
+        margin-top: 13px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        border-radius: 40px;
+        font-weight: 700;
+        cursor: pointer;
+        white-space: nowrap;
+    }
+
+    
+
+    .nombre_pedidos_pendientes {
+        color: white;
+        background: rgb(27, 27, 27);
+        width: 100%;
+        border-radius: 10px;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        font-size: 20px;
+        font-weight: 800;
+        text-align: center;
+    }
+
+    .caja_info-ppe {
+        width: 100%;
+        background-color: #f3f3f3;
+        border-radius: 10px;
+        border: 3px solid #f3f3f3;
+        font-size: 20px;
+        text-align: center;
+        margin-top: 25px;
+        padding-top: 10px;
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-bottom: 10px;
+        display: flex;
+        flex-direction: row;
+        box-shadow: 2px 4px 15px 0px rgb(214, 214, 214);
+        justify-content: space-between;
+    }
+
+    .caja_folio-ppe {
+        width: 60%;
+        text-align: center;
+        border-radius: 4px;
+        font-weight: 700;
+    }
+
+    .caja_total-ppe {
+        width: 35%;
+        border-radius: 4px;
+        font-weight: 700;
+    }
+
+    .caja_acciones-ppe {
+        display: none;
+    }
+
+
+
+
+    /*Contenedor para los pedidos*/
+    .caja-pedidos-ppe {
+        width: 100%;
+        margin-top: 25px;
+    }
+
+    .pedido_pendiente {
+        width: 100%;
+        font-size: 20px;
+        text-align: center;
+        padding-top: 10px;
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-bottom: 10px;
+        margin-bottom: 25px;
+        display: flex;
+        flex-direction: column;
+        box-shadow: 2px 4px 15px 0px rgb(214, 214, 214);
+        justify-content: space-between;
+    }
+
+    .datos {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .espacio_folio-ppe {
+        width: 60%;
+        background: rgb(209, 209, 209);
+        padding-top: 10px;
+        padding-bottom: 10px;
+        text-align: center;
+        border-radius: 5px;
+        font-weight: 700;
+        margin-left: -40%;
+      }
+      
+      .espacio_total-ppe {
+        width: 35%; 
+        background: rgb(209, 209, 209);
+        padding-top: 10px;
+        padding-bottom: 10px;
+        text-align: center;
+        border-radius: 5px;
+        font-weight: 700;
+        margin-top: -14%; 
+        margin-left: 65%;
+      }
+
+      .espacio_acciones-ppe {
+        margin-top: 20px;
+    }
+
+    .btn-ver_pedido-ppe {
+        width: 40%;
+        margin-left: 13%;
+        margin-right: 30%;
+        margin-top: 10px;
+        padding-top: 7px;
+        padding-bottom: 5px;
+        border-radius: 40px;
+        font-weight: 700;
+        cursor: pointer;
+        white-space: nowrap;
+    }
+
+    
+    
+
+
+    .container{
+        margin-top: 30%;
+        width: 100%;
+    }
+
+    .progress-barp{
+        margin-left: 45%;
+    }
+
+    .progress-baro{
+        margin-left: 45%;
+    }
+
+    .box-Pr{
+        width: 180%;
+    }
+
+    .box-Ca{
+        width: 180%;
+    }
+
+
+    .flex-box-i{
+        width: 90%;
+    }
+
+    .b-Ca{
+        width: 10%;
+        margin-left: 20%;
+        
+    }
+
+    .btn-l1 a{
+        padding: 15px;
+        margin-left: 37px;
+        width: 70%;
+        margin-top: -17%;
+        
+    }
+
+    .btn-l2 a{
+        margin-top: -20%;
+        padding: 15px;
+        margin-left: 37px;
+        width: 70%;
+        
+    }
+
+}
+
+
+
+
+
+
+
+@media only screen and (min-width: 300px) and (max-width: 400px){
+    .usu{
+        top: 9%;
+    }
+
+    .usu1{
+        top: 6% !important;
+    }
+
+    .usu2{
+        top: 10% !important;
+    }
+
+
+    .icono_responsivo {
+        display: none;
+        
+    }
+
+    .icono_responsivomenu {
+        display: inline;
+        width: 40%;
+        margin-left: 70%;
+        cursor: pointer;
+    }
+
+
+    .icono_usuario {
+        display: inline;
+    }
+
+    .elem {
+        display: none;
+    }
+
+    .menu-escondido .icono_usuarioR {
+        display: inline;
+        width: 21%;
+        float: right;
+        margin-top: -13px;
+        border-radius: 20px;
+    }
+
+    .menu-escondido .isaac {
+        display: inline-block;
+        margin-left: 20px;
+
+
+    }
+
+    .max {
+        margin-top: 20px;
+        background-color: #fffefc;
+        border-radius: 10px;
+        padding: 20px;
+    }
+
+    .checkbtn {
+        display: none;
+    }
+
+    .conpp {
+        margin-top: 30%;
+        margin-right: 150px;
+    }
+
+    
+
+    .flex-boxqr {
+        width: 130%;
+
+    }
+
+    .box {
+        font-size: 70%;
+        margin-top: 20px;
+    }
+
+    .conqr {
+        width: 80%;
+        height: 300px;
+        margin-top: -70px;
+        margin-left: 40px;
+    }
+
+    .menu-escondido {
+        margin-left: -60%;
+        width: 80%;
+    }
+
+
+    .box-To, .b-To, .b-To-2, .b-To-to{
+        display: none;
+    }
+
+
+    .contenedor_izquierdo {
+        order: 2;
+        margin-top: 60px;
+    }
+
+    .contenedor_general {
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+        margin: auto;
+    }
+
+    .contenedor_derecho {
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .contenedor_izquierdo {
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .nombre_pedidos_proceso {
+        color: white;
+        background: rgb(27, 27, 27);
+        width: 100%;
+        border-radius: 10px;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        font-size: 20px;
+        font-weight: 800;
+        text-align: center;
+    }
+
+    .caja_info-ppr {
+        width: 100%;
+        background-color: #f3f3f3;
+        border-radius: 10px;
+        border: 3px solid #f3f3f3;
+        font-size: 20px;
+        text-align: center;
+        margin-top: 25px;
+        padding-top: 10px;
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-bottom: 10px;
+        display: flex;
+        flex-direction: row;
+        box-shadow: 2px 4px 15px 0px rgb(214, 214, 214);
+        justify-content: space-between;
+    }
+
+    .caja_folio-ppr {
+        width: 60%;
+        color: white;
+        background: rgb(107, 148, 186);
+        text-align: center;
+        border-radius: 4px;
+        font-weight: 700;
+    }
+
+    .caja_total-ppr {
+        width: 35%;
+        background: rgb(120, 163, 203);
+        border-radius: 4px;
+        font-weight: 700;
+    }
+
+    .caja_acciones-ppr {
+        display: none;
+    }
+
+    /*Contenedor para los pedidos*/
+    .caja-pedidos-ppr {
+        width: 100%;
+        margin-top: 25px;
+    }
+
+    .pedido_proceso {
+        width: 100%;
+        font-size: 20px;
+        text-align: center;
+        padding-top: 10px;
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-bottom: 10px;
+        margin-bottom: 25px;
+        display: flex;
+        flex-direction: column;
+        box-shadow: 2px 4px 15px 0px rgb(214, 214, 214);
+        justify-content: space-between;
+    }
+
+    .datos {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .espacio_folio-ppr {
+        width: 60%;
+        background: rgb(209, 209, 209);
+        padding-top: 10px;
+        padding-bottom: 10px;
+        text-align: center;
+        border-radius: 5px;
+        font-weight: 700;
+      }
+      
+      .espacio_total-ppr {
+        width: 35%; 
+        background: rgb(209, 209, 209);
+        padding-top: 10px;
+        padding-bottom: 10px;
+        text-align: center;
+        border-radius: 5px;
+        font-weight: 700;
+        margin-top: -16%; 
+        margin-left: 65%;
+      }
+      
+
+    .espacio_acciones-ppr {
+        margin-top: 20px;
+    }
+
+    .btn-ver_pedido-ppr {
+        background: rgb(255, 255, 255);
+        width: 40%;
+        margin-left: 8%;
+        margin-right: 30%;
+        margin-top: 13px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        border-radius: 40px;
+        font-weight: 700;
+        cursor: pointer;
+        white-space: nowrap;
+    }
+
+    
+
+    .nombre_pedidos_pendientes {
+        color: white;
+        background: rgb(27, 27, 27);
+        width: 100%;
+        border-radius: 10px;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        font-size: 20px;
+        font-weight: 800;
+        text-align: center;
+    }
+
+    .caja_info-ppe {
+        width: 100%;
+        background-color: #f3f3f3;
+        border-radius: 10px;
+        border: 3px solid #f3f3f3;
+        font-size: 20px;
+        text-align: center;
+        margin-top: 25px;
+        padding-top: 10px;
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-bottom: 10px;
+        display: flex;
+        flex-direction: row;
+        box-shadow: 2px 4px 15px 0px rgb(214, 214, 214);
+        justify-content: space-between;
+    }
+
+    .caja_folio-ppe {
+        width: 60%;
+        text-align: center;
+        border-radius: 4px;
+        font-weight: 700;
+    }
+
+    .caja_total-ppe {
+        width: 35%;
+        border-radius: 4px;
+        font-weight: 700;
+    }
+
+    .caja_acciones-ppe {
+        display: none;
+    }
+
+
+
+
+    /*Contenedor para los pedidos*/
+    .caja-pedidos-ppe {
+        width: 100%;
+        margin-top: 25px;
+    }
+
+    .pedido_pendiente {
+        width: 100%;
+        font-size: 20px;
+        text-align: center;
+        padding-top: 10px;
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-bottom: 10px;
+        margin-bottom: 25px;
+        display: flex;
+        flex-direction: column;
+        box-shadow: 2px 4px 15px 0px rgb(214, 214, 214);
+        justify-content: space-between;
+    }
+
+    .datos {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .espacio_folio-ppe {
+        width: 60%;
+        background: rgb(209, 209, 209);
+        padding-top: 10px;
+        padding-bottom: 10px;
+        text-align: center;
+        border-radius: 5px;
+        font-weight: 700;
+        margin-left: -40%;
+      }
+      
+      .espacio_total-ppe {
+        width: 35%; 
+        background: rgb(209, 209, 209);
+        padding-top: 10px;
+        padding-bottom: 10px;
+        text-align: center;
+        border-radius: 5px;
+        font-weight: 700;
+        margin-top: -16%; 
+        margin-left: 65%;
+      }
+
+      .espacio_acciones-ppe {
+        margin-top: 20px;
+    }
+
+    .btn-ver_pedido-ppe {
+        width: 40%;
+        margin-left: 8%;
+        margin-right: 30%;
+        margin-top: 10px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        border-radius: 40px;
+        font-weight: 700;
+        cursor: pointer;
+        white-space: nowrap;
+    }
+
+    
+    
+
+
+    .container{
+        margin-top: 30%;
+        width: 100%;
+    }
+
+    .progress-barp{
+        margin-left: 45%;
+    }
+
+    .progress-baro{
+        margin-left: 45%;
+    }
+
+    .box-Pr{
+        width: 180%;
+    }
+
+    .box-Ca{
+        width: 180%;
+    }
+
+
+    .flex-box-i{
+        width: 90%;
+    }
+
+    .b-Ca{
+        width: 10%;
+        margin-left: 20%;
+        
+    }
+
+    .btn-l1 a{
+        padding: 15px;
+        margin-left: 37px;
+        width: 70%;
+        margin-top: -17%;
+        
+    }
+
+    .btn-l2 a{
+        margin-top: -15%;
+        padding: 15px;
+        margin-left: 37px;
+        width: 70%;
+        
+    }
+
+}
+
+

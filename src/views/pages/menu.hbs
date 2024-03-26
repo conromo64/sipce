@@ -1,0 +1,49 @@
+<style>
+	.filtro {
+		display: none;
+	}
+</style>
+<script src="/js/filtro.js"></script>
+<div class="cont-prin">
+	<div class="contenedor-2">
+		<div class="cont-pers-agreaga-buscador">
+			<div class="titulo-btn-a">
+				<h2 class="titulo-per-adm">Articulos</h2>
+				<div class="btn-agreg-per"><a href="/altaProducto">Agregar + </a></div>
+			</div>
+			<!--Buscador-->
+			<div class="barraBusqueda">
+				<img src="/images/lupa.png" class="iconoBusqueda">
+				<input type="text" class="busBox" id="buscador" placeholder="Buscar Personal">
+			</div>
+		</div>
+
+		<div class="container">
+			<table>
+				<thead>
+					<tr class="encabesado">
+						<th class="enca-n">ID Articulo</th>
+						<th class="enca-n">Nombre</th>
+						<th class="enca-n">Descripcion</th>
+						<th class="enca-n">imagen</th>
+						<th class="enca-n">Editar</th>
+						<th class="enca-n">Borrar</th>
+					</tr>
+				</thead>
+				<tbody>
+					{{#each per}}
+					<tr id="articulos" class="info-per">
+						<th>{{id_art}}</th>
+						<th id="articulo">{{nombre}}</th>
+						<th>{{descripcion}}</th>
+						<th><img src="{{image}}" alt="" class="felipe"></th>
+						<th><a href="/editarMen/{{id_art}}" class="btn-ed">Editar</a></th>
+						<th><a href="/eliminaMen/{{id_art}}" class="btn-ba">Baja</a></th>
+					</tr>
+					{{/each}}
+
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

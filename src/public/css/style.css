@@ -1,0 +1,4235 @@
+*{
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+    font-family: 'Nunito', sans-serif;
+}
+
+body {
+    background: rgb(249, 251, 255)
+}
+
+
+/*---------------------------------------*/
+/*----LOGIN ADMINISTRADOR-PERSONAL----*/
+/*-------------------------------------*/
+section {
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    padding-top: 150px;
+}
+
+
+
+.container-log {
+    margin: auto;
+    background-color: white;
+    width: 630px;
+    height: 500px;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow:  5px 10px 15px 15px rgb(214, 214, 214);
+}
+
+
+
+
+.forInput {
+    position: relative;
+    margin-top: 30px; 
+    margin-bottom: -3px;
+    position: relative; 
+}
+
+.forInput input {
+    padding: 15px;
+    font-size: 18px;
+    border-radius: 5px; 
+    border: #acacac solid 2px;
+    background-color: transparent;
+    color: #060404;
+    font-size: 90%;
+    transition: 0.15s all ease;
+    width: 370px;
+    margin-left: 110px; 
+    z-index: 1;
+}
+
+.forInput input:focus {
+    border-color: rgb(13, 59, 111);
+}
+
+.forInput input::placeholder {
+    color: transparent;
+}
+
+.forInput .labelInp {
+    position: absolute;
+    top: 16px; 
+    left: 115px;
+    font-size: 16px;
+    padding: 0 10px;
+    color: #acacac;
+    pointer-events: none;
+    transition: 0.15s all ease;
+}
+
+.forInput input:focus + .labelInp,
+.forInput input:not(:placeholder-shown) + .labelInp {
+    transform: translate(5px, -22px);
+    background-color: #ffffff;
+    font-size: 16px;
+    color: #000000;
+}
+
+.laimg {
+    margin-top: 20px ; 
+    margin-left: 230px;
+    width: 150px;
+}
+
+.titulo-i-s{
+    margin-top: 10px;
+    margin-left: 220px;
+    font-weight: 1000;
+}
+
+
+.btn-inicio-sesion {
+    position: absolute;
+    margin-top: 40px; 
+    margin-left: 210px; 
+    background: rgb(13, 59, 111);
+    color: #fff;
+    padding: 15px;
+    width: 200px;
+    border: none;
+    font-size: 125%;
+    font-weight: 1000;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+
+
+/*esto es para lo de contraseña*/
+.verContra {
+    position: absolute;
+    left: 445px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    background-image: url('/images/oculto.png');
+    background-size: cover;
+    cursor: pointer;
+}
+
+.password-hidden {
+    background-image: url('/images/oculto.png');
+}
+
+.password-visible {
+    background-image: url('/images/ver.png');
+}
+
+/*-------------------------------------*/
+/*-------------------------------------*/
+/*-----SISTEMA DE ADMINISTRADOR--------*/
+/*-------------------------------------*/
+/*-------------------------------------*/
+
+/*-----------------------------------------------*/
+/*ESTILOS DE LA CABECERA Y LA BARRA DE NAVEGACIÓN*/
+/*-----------------------------------------------*/
+header {
+    width: 100%;
+    height: 70px;
+    position: fixed;
+    background: rgba(99, 111, 169, 0.784);
+    backdrop-filter: blur(0.4rem);
+    -webkit-backdrop-filter: blur(0.4rem);
+    z-index: 4;
+}
+
+nav {
+    width: 90%;
+    height: 70px;
+    margin: 0 5%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/*Espacio para el logo y el botón de inicio*/
+.logo-inicio {
+    width: 300px;
+    justify-content: space-between;
+    display: flex;
+    flex-direction: row;
+    align-items: center
+}
+
+/*Espacio para el logo y el nombre del sistema*/
+nav .enlace-inicio {
+    width: 150px;
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.logo {
+    height: 40px;
+    border-radius: 263px;
+    margin-right: 10px;
+}
+
+.marca-sipce {
+    color: #ffffff;
+}
+
+.btn-inicio {
+    font-weight: 500;
+    color: #f0efef;
+    padding: 5px 15px;
+}
+
+.btn-inicio:hover {
+    background: rgb(99, 111, 169);
+    padding: 5px 15px;
+    border-radius: 50px;
+}
+
+/*cnfiguracion del espacio para lo relacionado con el usuario*/
+.espacio-usuario {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.hola-admin {
+    font-weight: 500;
+    margin-right: 10px;
+    color: rgb(242, 244, 254);
+}
+
+.foto-perfil {
+    width: 50px;
+    height: 50px;
+    border: 5px solid rgb(99, 111, 169);
+    border-radius: 365px;
+    cursor: pointer;
+}
+
+.espacio-indicador-usuario {
+    width: 100%;
+}
+
+/*---------------------------------------------*/
+/*APARTADO FLOTANTE CON INFORMACION DEL USUARIO*/
+/*---------------------------------------------*/
+.menu-escondido {
+    position: fixed;
+    top: 90px;
+    right: 25px;
+    width: 375px;
+    color: #e4e4e4;
+    background: rgba(99, 111, 169, 0.587);
+    backdrop-filter: blur(0.4rem);
+    -webkit-backdrop-filter: blur(0.4rem);
+    border-radius: 25px;
+    max-height: 0px;
+    overflow: hidden;
+    transition: max-height 0.4s;
+    box-shadow: 2px 4px 15px 0 rgb(176, 176, 176);
+    z-index: 4;
+}
+
+.menu-escondido.open-menu {
+    max-height: 400px;
+    z-index: 4;
+}
+
+.sub-menu {
+    background: rgba(99, 111, 169, 0.784);
+    backdrop-filter: blur(0.4rem);
+    -webkit-backdrop-filter: blur(0.4rem);
+    padding: 20px;
+    margin: 10px;
+    border-radius: 20px;
+    z-index: 4;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.btn-cerrarSesion {
+    display: inline-block;
+    width: 200px;
+    text-align: center;
+    padding: 5px 0;
+    background: rgb(139, 154, 255);
+    border: 1px solid rgb(199, 197, 197);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.subm-info-usuario{
+	display: flex;
+	align-items: center;
+}
+
+.subm-info-usuario .subm-nombre-usuario{
+	font-weight: 800;
+    font-size: 25px;
+    margin-left: 5%;
+}
+
+.icono_usuarioR{
+	width: 60px;
+	border-radius: 50%;
+	margin-right: 15px;
+}
+
+.subm-opciones{
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+
+
+/*----CONTENIDO DE LA PANTALLA DE INICIO----*/
+/*----------------------------------*/
+/*----------------------------------*/
+/*CONTENIDO DE LA PAGINA DE INICIO*/
+/*----------------------------------*/
+/*----------------------------------*/
+.contenedor-principal {
+    width: 90%;
+    max-width: 2000px;
+    margin: auto;
+    padding-top: 110px;
+    padding-bottom: 20px;
+}
+
+/*-------------------------------------------------------------*/
+/*Configuración para el carrucel con opciones de administración*/
+/*-------------------------------------------------------------*/
+.contenedor-carrusel-inicio {
+    width: 80%;
+    height: auto;
+    margin: auto;
+    padding-bottom: 40px;
+}
+
+.carusel-administracion {
+    width: 100%;
+    max-width: 1150px;
+    height: 250px;
+    margin: auto;
+    padding: 20px 15px;
+    display: flex;
+    flex-wrap: nowrap;
+    overflow: scroll;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.carusel-administracion::-webkit-scrollbar {
+    display: none;
+}
+
+
+.elemento-admi {
+    flex: 1 0 auto;
+    background: rgb(255, 255, 255);
+    min-width: 300px;
+    max-width: 300px;
+    height: 200px;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 2px 4px 15px 0 rgb(211, 211, 211);
+    cursor: pointer;
+}
+
+.contenedor-info-tarjeta {
+    overflow: hidden;
+    height: 200px;
+    max-height: 200px;
+    padding-left: 5px;
+    padding-bottom: 5px;
+}
+
+.enlace {
+    color: rgb(36, 69, 94);
+    font-weight: 500;
+    padding: 2px 20px;
+    border-radius: 50px;
+    background: rgb(195, 213, 227);
+}
+
+/*Tarjeta para gestionar el personal*/
+.esp-nombre-icono-personal {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin-bottom: 15px;
+    margin-top: 30px;
+    transition: all .2s;
+}
+
+.t-personal {
+    color: #272727;
+    font-size: 25px;
+    margin-top: 5px;
+}
+
+.icon-personal {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+    background: rgb(187, 225, 255);
+    border-radius: 10px;
+}
+
+.cont-enlace-personal {
+    margin-top: 32px;
+    transition: all .2s;
+}
+
+/*Transfromacion para mostrar el enlace*/
+.elemento-admi:hover .esp-nombre-icono-personal {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    transition: all .2s;
+}
+
+.elemento-admi:hover .cont-enlace-personal {
+    margin-top: 15px;
+    transition: all 0s;
+}
+
+
+/*Tarjeta para gestionar los productos*/
+.esp-nombre-icono-productos {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin-bottom: 15px;
+    margin-top: 30px;
+    transition: all .2s;
+}
+
+.t-productos {
+    color: #272727;
+    font-size: 25px;
+    margin-top: 5px;
+}
+
+.icon-productos {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+    background: rgb(204, 201, 255);
+    border-radius: 10px;
+}
+
+.cont-enlace-productos {
+    margin-top: 32px;
+    transition: all .2s;
+}
+
+/*Transfromacion para mostrar el enlace*/
+.elemento-admi:hover .esp-nombre-icono-productos {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    transition: all .2s;
+}
+
+.elemento-admi:hover .cont-enlace-productos {
+    margin-top: 15px;
+    transition: all 0s;
+}
+
+/*Tarjeta para suspender*/
+.esp-nombre-icono-suspender {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin-bottom: 10px;
+    margin-top: 25px;
+    transition: all .2s;
+}
+
+.icon-suspender {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+    margin-top: 10px;
+    background: rgb(172, 195, 213);
+    border-radius: 10px;
+}
+
+.t-cuentas-clientes {
+    color: #272727;
+    font-size: 25px;
+}
+
+.cont-enlace-suspender {
+    margin-top: 25px;
+    transition: all .2s;
+}
+
+/*Transfromacion para mostrar el enlace*/
+.elemento-admi:hover .esp-nombre-icono-suspender {
+    margin-top: 10px;
+    margin-bottom: 5px;
+    transition: all .2s;
+}
+
+.elemento-admi:hover .cont-enlace-suspender {
+    margin-top: 10px;
+    transition: all 0s;
+}
+
+/*-------------------------------------------*/
+/*--ESPACIO PARA LAS TARJETAS QUE CONTIENEN LOS 
+FORMULARIOS PARA LA GENERACIÓN DE REPORTES---*/
+/*-------------------------------------------*/
+.contenedor-tarjetas {
+    width: 100%;
+    padding-top: 10px;
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(12, 1fr) ;
+    grid-template-rows: repeat(1, auto);
+    grid-template-areas: "tarjeta-reporte-personal tarjeta-reporte-personal tarjeta-reporte-personal tarjeta-reporte-personal tarjeta-reporte-producto tarjeta-reporte-producto tarjeta-reporte-producto tarjeta-reporte-producto tarjeta-reporte-ventas tarjeta-reporte-ventas tarjeta-reporte-ventas tarjeta-reporte-ventas";
+}
+
+.titulo-icon-info {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.tooltip-info {
+    position: relative;
+    font-size: 15px;
+}
+
+.icon-info {
+    width: 30px;
+    height: 30px;
+    background: rgb(239, 242, 255);
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.tooltip-box {
+    position: absolute;
+    width: 300px;
+    border-radius: 10px;
+    background: rgba(95, 141, 255, 0.23);
+    backdrop-filter: blur(0.4rem);
+    -webkit-backdrop-filter: blur(0.4rem);
+    line-height: 20px;
+    z-index: 2;
+    padding: 10px 20px;
+    bottom: 40px;
+    left: -240px;
+    color: #3f3f3f;
+    display: none;
+}
+
+.tooltip-box::after {
+    position: absolute;
+    content: "";
+    display: block;
+    bottom: -7px;
+}
+
+.tooltip-info:hover .tooltip-box {
+    display: inline-block;
+}
+
+/*------------------------------------------------------------*/
+/*Tarjeta con el formulario para generar reportes del personal*/
+/*------------------------------------------------------------*/
+.contenedor-tarjetas .tarjeta-reporte-personal {
+    grid-area: tarjeta-reporte-personal; 
+    border-radius: 20px;
+    border: 2px solid #fafafa10;
+    padding: 20px;
+    background: #ffffff;
+    box-shadow: 2px 4px 15px 0 rgba(131, 130, 130, 0.426);
+}
+
+.contenido-reporte-personal {
+    width: 100%;
+    margin-top: 40px;
+}
+
+.t-filtro-tiempo {
+    color: rgb(59, 59, 59);
+    padding-top: 5px;
+    padding-bottom:5px;
+}
+
+/*Filtro por fecha*/
+.filtro-fecha {
+    padding-top: 20px;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.titulo-filtro-fecha {
+    background: rgb(223, 229, 236);
+    padding: 5px 20px;
+    border-radius: 50px;
+}
+
+.fecha-personal {
+    margin-top: 10px;
+    border: 2px solid #88929c;
+    border-radius: 50px;
+    padding: 3px 10px;
+}
+
+/*Filtro por periodo*/
+.filtro-periodo {
+    padding-top: 20px;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.titulo-filtro-periodo {
+    background: rgb(223, 229, 236);
+    padding: 5px 20px;
+    border-radius: 50px;
+    border: 2px solid #7c8d9110;
+}
+
+.entradas-periodo {
+    padding-top: 10px;
+    display: flex;
+    flex-direction: row;
+    margin: auto; 
+}
+
+.fecha-uno-per {
+    border: 2px solid #88929c;
+    border-radius: 50px;
+    padding: 3px 10px;
+    margin-right: 4px;
+}
+
+.fecha-dos-per {
+    border: 2px solid #88929c;
+    border-radius: 50px;
+    padding: 3px 10px;
+    margin-left: 4px;
+}
+
+/*Espacio para seleccionar el area sobre la que se generará el reporte*/
+.selec-tipo-reporte {
+    padding-top: 30px;
+}
+
+.t-areas-trabajo {
+    color: rgb(59, 59, 59);
+    padding-bottom:10px;
+}
+
+/*Botón para generar el reporte*/
+.generar-reporte {
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 20px;
+}
+
+.btn-gen-rep-personal {
+    font-size: 15px;
+    font-weight: 500;
+    color: rgb(255, 255, 255);
+    background: rgb(84, 139, 191);
+    border: 1px solid rgba(51, 83, 110, 0.1);
+    padding: 7px 13px;
+    border-radius: 40px;
+    cursor: pointer;
+}
+
+.btn-gen-rep-personal:hover {
+    background: rgb(92, 160, 224);
+}
+
+/*------------------------------------------------------------*/
+/*Tarjeta con el formulario para generar reportes de productos*/
+/*------------------------------------------------------------*/
+.contenedor-tarjetas .tarjeta-reporte-productos {
+    grid-area: tarjeta-reporte-producto; 
+    border-radius: 20px;
+    border: 2px solid #fafafa10;
+    padding: 20px;
+    background: #ffffff;
+    box-shadow: 2px 4px 15px 0 rgba(131, 130, 130, 0.426);
+}
+
+.contenido-reporte-productos {
+    width: 100%;
+    margin-top: 40px;
+}
+
+/*Filtro por fecha*/
+.fecha-productos {
+    margin-top: 10px;
+    border: 2px solid #88929c;
+    border-radius: 50px;
+    padding: 3px 10px;
+}
+
+/*Filtro por periodo*/
+.fecha-uno-prod {
+    border: 2px solid #88929c;
+    border-radius: 50px;
+    padding: 3px 10px;
+    margin-right: 4px;
+}
+
+.fecha-dos-prod {
+    border: 2px solid #88929c;
+    border-radius: 50px;
+    padding: 3px 10px;
+    margin-left: 4px;
+}
+
+/*Espacio para seleccionar la opción para generar el reporte*/
+.t-opciones-reporte-productos {
+    color: rgb(59, 59, 59);
+    padding-bottom:10px;
+}
+
+/*Botón para generar el reporte*/
+.btn-gen-rep-productos {
+    font-size: 15px;
+    font-weight: 500;
+    color: rgb(255, 255, 255);
+    background: rgb(84, 139, 191);
+    border: 1px solid rgba(51, 83, 110, 0.1);
+    padding: 7px 13px;
+    border-radius: 40px;
+    cursor: pointer;
+}
+
+.btn-gen-rep-productos:hover {
+    background: rgb(92, 160, 224);
+}
+
+/*---------------------------------------------------------*/
+/*Tarjeta con el formulario para generar reportes de ventas*/
+/*---------------------------------------------------------*/
+.contenedor-tarjetas .tarjeta-reporte-ventas {
+    grid-area: tarjeta-reporte-ventas; 
+    border-radius: 20px;
+    border: 2px solid #fafafa10;
+    padding: 20px;
+    background: #ffffff;
+    box-shadow: 2px 4px 15px 0 rgba(131, 130, 130, 0.426);
+}
+
+.contenido-reporte-ventas {
+    width: 100%;
+    margin-top: 40px;
+}
+
+/*Filtro por fecha*/
+.fecha-venta {
+    margin-top: 10px;
+    border: 2px solid #88929c;
+    border-radius: 50px;
+    padding: 3px 10px;
+}
+
+/*Filtro por periodo*/
+.fecha-uno-venta {
+    border: 2px solid #88929c;
+    border-radius: 50px;
+    padding: 3px 10px;
+    margin-right: 4px;
+}
+
+.fecha-dos-venta {
+    border: 2px solid #88929c;
+    border-radius: 50px;
+    padding: 3px 10px;
+    margin-left: 4px;
+}
+
+/*Botón para generar el reporte*/
+
+.btn-gen-rep-ventas {
+    font-size: 15px;
+    font-weight: 500;
+    color: rgb(255, 255, 255);
+    background: rgb(84, 139, 191);
+    border: 1px solid rgba(51, 83, 110, 0.1);
+    padding: 7px 13px;
+    border-radius: 40px;
+    cursor: pointer;
+}
+
+.btn-gen-rep-ventas:hover {
+    background: rgb(92, 160, 224);
+}
+
+
+
+/*---------------------------------------*/
+/*----------SUSPENCION DE CUENTAS--------*/
+/*---------------------------------------*/
+.contenedor_principal-sc {
+    width: 90%;
+    min-width: 650px;
+    margin: auto;
+    padding-top: 120px;
+    padding-bottom: 50px;
+    justify-content: center;
+}
+
+/*----BARRA DE BUSQUEDA FLOTANTE------*/
+.espacio-busqueda {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.busqueda-flotante {
+    display: flex;
+    flex-direction: row;
+    width: 390px;
+    min-width: 390px;
+    height: 60px;
+    justify-content: space-between;
+    border-radius: 50px;
+    padding: 10px;
+    position: fixed;
+    margin: auto;
+    background: rgba(61, 94, 255, 0.36);
+    backdrop-filter: blur(0.4rem);
+    -webkit-backdrop-filter: blur(0.4rem);
+    z-index: 3;
+}
+
+.bar-buscar {
+    width: 250px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.655);
+    backdrop-filter: blur(0.4rem);
+    -webkit-backdrop-filter: blur(0.4rem);
+    border-radius: 50px;
+    border: 1px solid rgba(255, 255, 255, 0.311);
+    padding: 0px 10px;
+}
+
+.bar-buscar .input-buscar {
+    background: transparent;
+    flex: 1;
+    border: 0;
+    outline: none;
+    padding: 0px 10px;
+    font-size: 15px;
+    color: rgb(48, 48, 48);
+}
+
+::placeholder {
+    color: rgb(91, 91, 91);
+}
+
+.bar-buscar .icon-lupa {
+    width: 30px;
+    border-radius: 50%;
+    background: #f6fcffac;
+}
+
+.btn-filtar-infractores {
+    border: none;
+    border-radius: 50px;
+    background: #ffffffb2;
+    height: 40px;
+    text-align: center;
+    color: #272727;
+    font-size: 15px;
+    font-weight: 500;
+    padding: 0 20px;
+    cursor: pointer;
+}
+
+/*----------------------------------------------*/
+/*-----------CUENTAS DE CLIENTES----------------*/
+/*----------------------------------------------*/
+.contenedor-cuentas {
+    width: 100%;
+    margin-top: 90px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.tarjeta-cuenta {
+    display: grid;
+    grid-gap: 15px;
+    grid-template-columns: repeat(7, 1fr) ;
+    grid-template-rows: repeat(1, auto);
+    grid-template-areas: "correo-cuenta correo-cuenta correo-cuenta correo-cuenta espacio-acciones espacio-acciones espacio-acciones";
+    width: 600px;
+    border-radius: 20px;
+    padding: 20px;
+    background: #ffffff;
+    box-shadow: 2px 4px 15px 0 rgba(131, 130, 130, 0.426);
+}
+
+.tarjeta-cuenta .correo-cuenta {
+    grid-area: correo-cuenta; 
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.titulo-cuenta {
+    background: #dddddd;
+    border-radius: 50px;
+    text-align: center;
+    padding: 2px 0;
+}
+
+.correo-cuenta {
+    text-align: center;
+    font-weight: 500;
+    padding: 2px 0;
+}
+
+.tarjeta-cuenta .espacio-acciones { 
+    grid-area: espacio-acciones; 
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.titulo-acciones {
+    background: #dddddd;
+    border-radius: 50px;
+    text-align: center;
+    padding: 2px 0;
+}
+
+.acciones-cuenta {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.btn-suspender-cuenta {
+    width: 150px;
+    margin: auto;
+    text-align: center;
+    padding: 5px 0;
+    border: none;
+    border-radius: 50px;
+    color: rgb(255, 255, 255);
+    background: rgb(194, 40, 40);
+    font-size: 15px;
+    cursor: pointer;
+}
+
+/*--------------------------*/
+/*--------------------------*/
+/*-----DISEÑO RESPONSIVE----*/
+/*--------------------------*/
+/*--------------------------*/
+
+/*DISEÑO ADAPTADO A 1250 PIXELES*/
+@media screen and (max-width: 1250px) {
+    /*--Espacio para las tarjetas que contienen los
+    formularios para la generación de reportes---*/
+    .contenedor-tarjetas {
+        grid-template-columns: repeat(6, 1fr) ;
+        grid-template-rows: repeat(2, auto);
+        grid-template-areas: "tarjeta-reporte-personal tarjeta-reporte-personal tarjeta-reporte-personal tarjeta-reporte-producto tarjeta-reporte-producto tarjeta-reporte-producto"
+                            "tarjeta-reporte-ventas tarjeta-reporte-ventas tarjeta-reporte-ventas tarjeta-reporte-ventas tarjeta-reporte-ventas tarjeta-reporte-ventas";
+    }
+}
+
+/*DISEÑO ADAPTADO A 800 PIXELES*/
+@media screen and (max-width: 800px) {
+    /*CONTENIDO DE LA PAGINA DE INICIO*/
+    .contenedor-principal {
+        width: 70%;
+    }
+
+    /*Carrucel con opciones de administración*/
+    .contenedor-carrusel-inicio {
+        width: 100%;
+        height: auto;
+        margin: auto;
+        padding-bottom: 40px;
+    }
+
+    /*--Espacio para las tarjetas que contienen los
+    formularios para la generación de reportes---*/
+    .contenedor-tarjetas {
+        grid-template-columns: repeat(2, 1fr) ;
+        grid-template-rows: repeat(3, auto);
+        grid-template-areas: "tarjeta-reporte-personal tarjeta-reporte-personal"
+                            "tarjeta-reporte-producto tarjeta-reporte-producto"
+                            "tarjeta-reporte-ventas tarjeta-reporte-ventas";
+    }
+}
+
+/*DISEÑO ADAPTADO A 600 PIXELES*/
+@media screen and (max-width: 600px) {
+    .btn-inicio {
+        display: none;
+    }
+}
+
+/*DISEÑO ADAPTADO A 550 PIXELES*/
+@media screen and (max-width: 550px) {
+    /*CONTENIDO DE LA PAGINA DE INICIO*/
+    .contenedor-principal {
+        width: 80%;
+    }
+
+    /*SUSPENCIÓN DE CUENTAS*/
+    .contenedor-cuentas {
+        width: 100%;
+        margin-top: 90px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .contenedor_principal-sc {
+        width: 90%;
+        min-width: 470px;
+        margin: auto;
+        padding-top: 120px;
+        padding-bottom: 50px;
+        justify-content: center;
+    }
+
+    .tarjeta-cuenta {
+        grid-template-columns: repeat(2, 1fr) ;
+        grid-template-rows: repeat(2, auto);
+        grid-template-areas: "correo-cuenta correo-cuenta"
+                            "espacio-acciones espacio-acciones";
+        width: 430px;
+    }
+
+    .btn-suspender-cuenta {
+        font-size: 17px;
+        width: 80%;
+        padding: 10px 0;
+    }
+}
+
+/*DISEÑO ADAPTADO A 500 PIXELES*/
+@media screen and (max-width: 500px) {
+    /*CONTENIDO DE LA PAGINA DE INICIO*/
+    .contenedor-principal {
+        width: 90%;
+        min-width: 450px;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+
+/*DISEÑO ADAPTADO A 400 PIXELES*/
+@media screen and (max-width: 400px) {
+
+    /*Barra de navegación*/
+    nav {
+        width: 90%;
+        margin: auto;
+    }
+
+    .logo-inicio {
+        width: 120px;
+    }
+    
+    /*Espacio para el logo y el nombre del sistema*/
+    nav .enlace-inicio {
+        width: 150px;
+        height: 40px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+    
+    .logo {
+        height: 40px;
+        border-radius: 263px;
+        margin-right: 10px;
+    }
+    
+    .marca-sipce {
+        color: #fff;
+    }
+    
+    .btn-inicio {
+        display: none;
+    }
+
+    .hola-admin {
+        display: none;
+    }
+}
+
+
+
+
+/*---------------------------------------------*/
+/*PANTALLA REPORTE PERSONAL DE COCINA POR FECHA*/
+/*---------------------------------------------*/
+.btn-inicio {
+    margin-left: 30px;
+    padding: 5px 15px;
+    color: rgb(233, 233, 233);
+}
+
+.btn-inicio:hover {
+    background: rgb(208, 216, 255);
+    margin-left: 30px;
+    padding: 5px 15px;
+    border-radius: 50px;
+    color: rgb(54, 54, 54);
+}
+
+.contenedor-principal-rep-cocina-fecha {
+    padding-top: 150px;
+    width: 70%;
+    margin: auto;
+    padding-bottom: 40px;
+}
+
+.contenedor-uno-reportes {
+    width: 100%;
+}
+
+.Info-reporte-p-cocina {
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    background: white;
+    border-radius: 20px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.Info-reporte-p-cocina-periodo {
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    background: white;
+    border-radius: 20px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.titulo-reporte-generado {
+    font-family: 'Open Sans', sans-serif;;
+    font-weight: 800;
+    font-size: 20px;
+    margin-right: 30px;
+}
+
+.info-fecha-selec {
+    background: rgb(169, 184, 244);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 220px;
+    height: 50px;
+    border-radius: 50px;
+    justify-content: space-between;
+    padding-left: 20px;
+    padding-right: 10px;
+}
+
+.elemento-info-fecha {
+    color: rgb(59, 59, 59);
+}
+
+.fecha-selec-p-rep {
+    background: rgb(240, 240, 240);
+    padding: 8px 20px;
+    border-radius: 50px;
+}
+
+.espacio-desc-elementos {
+    width: 100%;
+    margin-top: 20px;
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    background: white;
+    border-radius: 15px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.desc-id {
+    width: 15%;
+    background-color: rgb(189, 210, 255);
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: center;
+    border-radius: 50px;
+}
+
+.dec-nombre {
+    width: 45%;
+    background-color: rgb(189, 210, 255);
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: center;
+    border-radius: 50px;
+}
+
+.desc-pedidos-prep {
+    width: 25%;
+    background-color: rgb(189, 210, 255);
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: center;
+    border-radius: 50px;
+}
+
+.contenedor-infos-empleados {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.contenedor-informacion-por-empleado {
+    width: 100%;
+    margin-top: 20px;
+    padding: 20px;
+    background: white;
+    border-radius: 15px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.espacio-p-info-empleado {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.id-empleado-rep {
+    width: 15%;
+    background-color: rgb(212, 207, 229);
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: center;
+    border-radius: 50px;
+}
+
+.nombre-empleado-rep {
+    width: 45%;
+    background-color: rgb(212, 207, 229);
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: center;
+    border-radius: 50px;
+}
+
+.pedidos-prep-empleado-rep {
+    width: 25%;
+    background-color: rgb(212, 207, 229);
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: center;
+    border-radius: 50px;
+}
+
+.espacio-btn-acciones {
+    padding-top: 20px;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.btn-folios-empleado-rep {
+    width: 100px;
+    border: 3px solid rgb(139, 90, 231);
+    border-radius: 50px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin: auto;
+    text-align: center;
+    cursor: pointer;
+    color: rgb(38, 38, 38);
+}
+
+/*-----------------------------------------------*/
+/*PANTALLA REPORTE PERSONAL DE COCINA POR PERIODO*/
+/*-----------------------------------------------*/
+.contenedor-principal-rep-cocina-periodo {
+    padding-top: 150px;
+    width: 70%;
+    margin: auto;
+}
+
+.info-periodo-selec {
+    background: rgb(169, 184, 244);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 400px;
+    height: 50px;
+    border-radius: 50px;
+    justify-content: space-between;
+    padding-left: 20px;
+    padding-right: 10px;
+}
+
+.espacio-info-fechas-periodo {
+    width: 70%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.elemento-info-periodo {
+    color: rgb(59, 59, 59);
+}
+
+.fecha-uno-selec-p-rep {
+    background: rgb(240, 240, 240);
+    padding: 8px 20px;
+    border-radius: 50px;
+}
+
+.fecha-dos-selec-p-rep {
+    background: rgb(240, 240, 240);
+    padding: 8px 20px;
+    border-radius: 50px;
+}
+
+.pedidos-prep-empleado-rep-periodo {
+    width: 25%;
+    background-color: rgb(212, 207, 229);
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: center;
+    border-radius: 50px;
+}
+
+.btn-folios-empleado-rep-periodo {
+    width: 100px;
+    border: 3px solid rgb(139, 90, 231);
+    border-radius: 50px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin: auto;
+    text-align: center;
+    cursor: pointer;
+    color: rgb(38, 38, 38);
+}
+
+/*-------------------------------------------*/
+/*PANTALLA REPORTE PERSONAL DE CAJA POR FECHA*/
+/*-------------------------------------------*/
+.contenedor-principal-rep-caja-fecha {
+    padding-top: 150px;
+    width: 70%;
+    margin: auto;
+}
+
+.contenedor-uno-reportes {
+    width: 100%;
+}
+
+.Info-reporte-p-caja {
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    background: white;
+    border-radius: 20px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.espacio-desc-elementos {
+    width: 100%;
+    margin-top: 20px;
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    background: white;
+    border-radius: 15px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.desc-pedidos-cobr {
+    width: 25%;
+    background-color: rgb(189, 210, 255);
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: center;
+    border-radius: 50px;
+}
+
+.pedidos-cobr-empleado-rep {
+    width: 25%;
+    background-color: rgb(212, 207, 229);
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: center;
+    border-radius: 50px;
+}
+
+/*----------------------------------------------*/
+/*PANTALLA REPORTE PERSONAL DE ENTREGA POR FECHA*/
+/*----------------------------------------------*/
+.contenedor-principal-rep-entrega-fecha {
+    padding-top: 150px;
+    width: 70%;
+    margin: auto;
+}
+
+.contenedor-uno-reportes {
+    width: 100%;
+}
+
+.Info-reporte-p-entrega {
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    background: white;
+    border-radius: 20px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.espacio-desc-elementos {
+    width: 100%;
+    margin-top: 20px;
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    background: white;
+    border-radius: 15px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.desc-pedidos-entr {
+    width: 25%;
+    background-color: rgb(189, 210, 255);
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: center;
+    border-radius: 50px;
+}
+
+.pedidos-entr-empleado-rep {
+    width: 25%;
+    background-color: rgb(212, 207, 229);
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: center;
+    border-radius: 50px;
+}
+
+/*-----------------------------------------------*/
+/*PANTALLA REPORTE PERSONAL DE COCINA POR PERIODO*/
+/*-----------------------------------------------*/
+.contenedor-principal-rep-cocina-periodo {
+    padding-top: 150px;
+    width: 70%;
+    margin: auto;
+}
+
+.info-periodo-selec {
+    background: rgb(169, 184, 244);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 400px;
+    height: 50px;
+    border-radius: 50px;
+    justify-content: space-between;
+    padding-left: 20px;
+    padding-right: 10px;
+}
+
+.espacio-info-fechas-periodo {
+    width: 70%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.elemento-info-periodo {
+    color: rgb(59, 59, 59);
+}
+
+.fecha-uno-selec-p-rep {
+    background: rgb(240, 240, 240);
+    padding: 8px 20px;
+    border-radius: 50px;
+}
+
+.fecha-dos-selec-p-rep {
+    background: rgb(240, 240, 240);
+    padding: 8px 20px;
+    border-radius: 50px;
+}
+
+.pedidos-prep-empleado-rep-periodo {
+    width: 25%;
+    background-color: rgb(212, 207, 229);
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: center;
+    border-radius: 50px;
+}
+
+.btn-folios-empleado-rep-periodo {
+    width: 100px;
+    border: 3px solid rgb(139, 90, 231);
+    border-radius: 50px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin: auto;
+    text-align: center;
+    cursor: pointer;
+    color: rgb(38, 38, 38);
+}
+
+/*---------------------------------------------*/
+/*PANTALLA REPORTE PERSONAL DE CAJA POR PERIODO*/
+/*---------------------------------------------*/
+.contenedor-principal-rep-caja-periodo {
+    padding-top: 150px;
+    width: 70%;
+    margin: auto;
+}
+
+.Info-reporte-p-caja-periodo {
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    background: white;
+    border-radius: 20px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.pedidos-cobr-empleado-rep-periodo {
+    width: 25%;
+    background-color: rgb(212, 207, 229);
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: center;
+    border-radius: 50px;
+}
+
+/*------------------------------------------------*/
+/*PANTALLA REPORTE PERSONAL DE ENTREGA POR PERIODO*/
+/*------------------------------------------------*/
+.contenedor-principal-rep-entrega-periodo {
+    padding-top: 150px;
+    width: 70%;
+    margin: auto;
+}
+
+.Info-reporte-p-entrega-periodo {
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    background: white;
+    border-radius: 20px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.pedidos-entr-empleado-rep-periodo {
+    width: 25%;
+    background-color: rgb(212, 207, 229);
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: center;
+    border-radius: 50px;
+}
+
+/*---------------------------------------------*/
+/*-----PANTALLA REPORTE DE VENTAS POR FECHA----*/
+/*---------------------------------------------*/
+.contenedor-principal-rep-venta-fecha {
+    padding-top: 150px;
+    width: 70%;
+    margin: auto;
+    padding-bottom: 40px;
+}
+
+.contenedor-uno-reportes {
+    width: 100%;
+}
+
+.Info-reporte-venta {
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    background: white;
+    border-radius: 20px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.info-fecha-selec-venta {
+    background: rgb(169, 184, 244);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 220px;
+    height: 50px;
+    border-radius: 50px;
+    justify-content: space-between;
+    padding-left: 20px;
+    padding-right: 10px;
+}
+
+.elemento-info-fecha {
+    color: rgb(59, 59, 59);
+}
+
+.fecha-selec-v-rep {
+    background: rgb(240, 240, 240);
+    padding: 8px 20px;
+    border-radius: 50px;
+}
+
+.espacio-desc-elementos {
+    width: 100%;
+    margin-top: 20px;
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    background: white;
+    border-radius: 15px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.desc-fecha-v {
+    width: 15%;
+    background-color: rgb(189, 210, 255);
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: center;
+    border-radius: 50px;
+}
+
+.desc-fecha-v {
+    width: 15%;
+    background-color: rgb(189, 210, 255);
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: center;
+    border-radius: 50px;
+}
+
+.desc-folio-v {
+    width: 15%;
+    background-color: rgb(189, 210, 255);
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: center;
+    border-radius: 50px;
+}
+
+.desc-cliente-v {
+    width: 45%;
+    background-color: rgb(189, 210, 255);
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: center;
+    border-radius: 50px;
+}
+
+.desc-total-v {
+    width: 15%;
+    background-color: rgb(189, 210, 255);
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: center;
+    border-radius: 50px;
+}
+
+.contenedor-infos-folios-v {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.contenedor-informacion-folio-vent {
+    width: 100%;
+    margin-top: 20px;
+    padding: 20px;
+    background: white;
+    border-radius: 15px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.espacio-v-info-folio {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.fecha-folio-rep-v {
+    width: 15%;
+    background-color: rgb(212, 207, 229);
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: center;
+    border-radius: 50px;
+}
+
+
+.folio-rep-v {
+    width: 15%;
+    background-color: rgb(212, 207, 229);
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: center;
+    border-radius: 50px;
+}
+
+.cliente-rep-v {
+    width: 45%;
+    background-color: rgb(212, 207, 229);
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: center;
+    border-radius: 50px;
+}
+
+.total-comp-rep-v {
+    width: 15%;
+    background-color: rgb(212, 207, 229);
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: center;
+    border-radius: 50px;
+}
+
+.espacio-btn-acciones-V {
+    padding-top: 20px;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.btn-detalles-folios-rep {
+    width: 100px;
+    border: 3px solid rgb(139, 90, 231);
+    border-radius: 50px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin: auto;
+    text-align: center;
+    cursor: pointer;
+    color: rgb(38, 38, 38);
+}
+
+/*-------------------------------------*/
+/*PANTALLA REPORTE DE VENTA POR PERIODO*/
+/*-------------------------------------*/
+.contenedor-principal-rep-venta-periodo {
+    padding-top: 150px;
+    width: 70%;
+    margin: auto;
+}
+
+.Info-reporte-venta-periodo {
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    background: white;
+    border-radius: 20px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.info-periodo-selec-venta {
+    background: rgb(169, 184, 244);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 400px;
+    height: 50px;
+    border-radius: 50px;
+    justify-content: space-between;
+    padding-left: 20px;
+    padding-right: 10px;
+}
+
+.espacio-info-fechas-periodo-venta {
+    width: 70%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.fecha-uno-selec-v-rep {
+    background: rgb(240, 240, 240);
+    padding: 8px 20px;
+    border-radius: 50px;
+}
+
+.fecha-dos-selec-v-rep {
+    background: rgb(240, 240, 240);
+    padding: 8px 20px;
+    border-radius: 50px;
+}
+
+.contenedor-infos-folios {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.folios-fecha-periodo-vent {
+    width: 100%;
+}
+
+.info-fecha-v-periodo {
+    width: 100%;
+    font-family: 'Open Sans', sans-serif;;
+    font-weight: 800;
+    font-size: 18px;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.desc-folio-v-fecha {
+    width: 20%;
+    background-color: rgb(189, 210, 255);
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: center;
+    border-radius: 50px;
+}
+
+.desc-cliente-v-fecha {
+    width: 45%;
+    background-color: rgb(189, 210, 255);
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: center;
+    border-radius: 50px;
+}
+
+.desc-total-v-fecha {
+    width: 20%;
+    background-color: rgb(189, 210, 255);
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: center;
+    border-radius: 50px;
+}
+
+.folio-rep-v-fecha {
+    width: 20%;
+    background-color: rgb(212, 207, 229);
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: center;
+    border-radius: 50px;
+}
+
+.cliente-rep-v-fecha {
+    width: 45%;
+    background-color: rgb(212, 207, 229);
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: center;
+    border-radius: 50px;
+}
+
+.total-comp-rep-v-fecha {
+    width: 20%;
+    background-color: rgb(212, 207, 229);
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: center;
+    border-radius: 50px;
+}
+
+/*-------------------------------------*/
+/*PANTALLA REPORTE DE PRODUCTOS POR CANTIDAD POR FECHA*/
+/*-------------------------------------*/
+.contenedor-principal-rep-producto-fecha {
+    padding-top: 150px;
+    width: 70%;
+    margin: auto;
+}
+
+.Info-reporte-prod {
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    background: white;
+    border-radius: 20px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.info-fecha-selec-prod {
+    background: rgb(169, 184, 244);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 220px;
+    height: 50px;
+    border-radius: 50px;
+    justify-content: space-between;
+    padding-left: 20px;
+    padding-right: 10px;
+}
+
+.fecha-selec-prod-rep {
+    background: rgb(240, 240, 240);
+    padding: 8px 20px;
+    border-radius: 50px;
+}
+
+.contenedor-infos-productos {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.contenedor-informacion-por-producto {
+    width: 100%;
+    margin-top: 20px;
+    padding: 20px;
+    background: white;
+    border-radius: 15px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.espacio-info-producto {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.info-fecha-v-periodo {
+    width: 100%;
+    font-family: 'Open Sans', sans-serif;;
+    font-weight: 800;
+    font-size: 18px;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.desc-id-prod {
+    width: 20%;
+    background-color: rgb(189, 210, 255);
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: center;
+    border-radius: 50px;
+}
+
+.desc-nombre-prod {
+    width: 45%;
+    background-color: rgb(189, 210, 255);
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: center;
+    border-radius: 50px;
+}
+
+.desc-cantidad-prod {
+    width: 25%;
+    background-color: rgb(189, 210, 255);
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: center;
+    border-radius: 50px;
+}
+
+.id-producto-rep {
+    width: 20%;
+    background-color: rgb(212, 207, 229);
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: center;
+    border-radius: 50px;
+}
+
+.nombre-producto-rep {
+    width: 45%;
+    background-color: rgb(212, 207, 229);
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: center;
+    border-radius: 50px;
+}
+
+.cant-productos-rep {
+    width: 25%;
+    background-color: rgb(212, 207, 229);
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: center;
+    border-radius: 50px;
+}
+
+/*-------------------------------------*/
+/*PANTALLA REPORTE DE PRODUCTOS POR CANTIDAD POR PERIODO*/
+/*-------------------------------------*/
+.contenedor-principal-rep-producto-periodo {
+    padding-top: 150px;
+    width: 70%;
+    margin: auto;
+}
+
+.info-periodo-selec-prod {
+    background: rgb(169, 184, 244);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 400px;
+    height: 50px;
+    border-radius: 50px;
+    justify-content: space-between;
+    padding-left: 20px;
+    padding-right: 10px;
+}
+
+.espacio-info-fechas-periodo {
+    width: 70%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.elemento-info-periodo {
+    color: rgb(59, 59, 59);
+}
+
+.fecha-uno-selec-prod-rep {
+    background: rgb(240, 240, 240);
+    padding: 8px 20px;
+    border-radius: 50px;
+}
+
+.fecha-dos-selec-prod-rep {
+    background: rgb(240, 240, 240);
+    padding: 8px 20px;
+    border-radius: 50px;
+}
+
+.cant-productos-rep-pe {
+    width: 25%;
+    background-color: rgb(212, 207, 229);
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: center;
+    border-radius: 50px;
+}
+
+.Info-reporte-prod-periodo {
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    background: white;
+    border-radius: 20px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/*-------------------------------------*/
+/*PANTALLA REPORTE DE PRODUCTOS POR INGRESO POR FECHA*/
+/*-------------------------------------*/
+.desc-ingreso-prod {
+    width: 25%;
+    background-color: rgb(189, 210, 255);
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: center;
+    border-radius: 50px;
+}
+
+.ingreso-productos-rep {
+    width: 25%;
+    background-color: rgb(212, 207, 229);
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: center;
+    border-radius: 50px;
+}
+
+/*-------------------------------------*/
+/*PANTALLA REPORTE DE PRODUCTOS POR INGRESO POR PERIODO*/
+/*-------------------------------------*/
+.ingreso-productos-rep-pe {
+    width: 25%;
+    background-color: rgb(212, 207, 229);
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: center;
+    border-radius: 50px;
+}
+
+/*-------------------------------------*/
+/*PANTALLA REPORTE DE UN PRODUCTO POR FECHA*/
+/*-------------------------------------*/
+.contenedor-principal-rep-producto-fecha-ind {
+    padding-top: 150px;
+    width: 70%;
+    margin: auto;
+}
+
+.Info-reporte-prod-selec {
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    background: white;
+    border-radius: 20px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.producto-nombre-selec {
+    background: rgb(190, 200, 242);
+    align-items: center;
+    padding: 5px 20px;
+    border-radius: 50px;
+    width: 30%;
+    text-align: center;
+}
+
+.contenedor-infos-folios {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.folios-fecha-periodo-vent {
+    width: 100%;
+}
+
+.info-fecha-v-periodo {
+    width: 100%;
+    font-family: 'Open Sans', sans-serif;;
+    font-weight: 800;
+    font-size: 18px;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.desc-id-prod-ind {
+    width: 20%;
+    background-color: rgb(189, 210, 255);
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: center;
+    border-radius: 50px;
+}
+
+.desc-precio-ind {
+    width: 25%;
+    background-color: rgb(189, 210, 255);
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: center;
+    border-radius: 50px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.desc-cantidad-vendida-ind {
+    width: 20%;
+    background-color: rgb(189, 210, 255);
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: center;
+    border-radius: 50px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.desc-ingreso-d-prod-ind {
+    width: 25%;
+    background-color: rgb(189, 210, 255);
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: center;
+    border-radius: 50px;
+}
+
+.id-producto-rep-ind {
+    width: 20%;
+    background-color: rgb(189, 210, 255);
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: center;
+    border-radius: 50px;
+}
+
+.precio-ind {
+    width: 25%;
+    background-color: rgb(189, 210, 255);
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: center;
+    border-radius: 50px;
+}
+
+.cantidad-vendida-ind {
+    width: 20%;
+    background-color: rgb(189, 210, 255);
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: center;
+    border-radius: 50px;
+}
+
+.ingreso-producto-rep-ind {
+    width: 25%;
+    background-color: rgb(189, 210, 255);
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: center;
+    border-radius: 50px;
+}
+
+.contenedor-informacion-producto {
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    background: white;
+    border-radius: 20px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.contenedor-info-producto {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.espacio-info-producto-ind {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/*-------------------------------------*/
+/*PANTALLA REPORTE DE UN PRODUCTO POR PERIODO*/
+/*-------------------------------------*/
+.contenedor-principal-rep-producto-periodo-ind {
+    padding-top: 150px;
+    width: 80%;
+    margin: auto;
+}
+
+.Info-reporte-prod-selec-ind {
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    background: white;
+    border-radius: 20px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.producto-nombre-selec-periodo {
+    background: rgb(190, 200, 242);
+    align-items: center;
+    padding: 5px 20px;
+    border-radius: 50px;
+    width: 40%;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.contenedor-infos-folios {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.folios-fecha-periodo-vent {
+    width: 100%;
+}
+
+.info-fecha-v-periodo {
+    width: 100%;
+    font-family: 'Open Sans', sans-serif;;
+    font-weight: 800;
+    font-size: 18px;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.desc-id-prod-ind {
+    width: 20%;
+    background-color: rgb(189, 210, 255);
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: center;
+    border-radius: 50px;
+}
+
+.desc-precio-ind {
+    width: 25%;
+    background-color: rgb(189, 210, 255);
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: center;
+    border-radius: 50px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.desc-cantidad-vendida-ind {
+    width: 20%;
+    background-color: rgb(189, 210, 255);
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: center;
+    border-radius: 50px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.desc-ingreso-d-prod-ind {
+    width: 25%;
+    background-color: rgb(189, 210, 255);
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: center;
+    border-radius: 50px;
+}
+
+.id-producto-rep-ind {
+    width: 20%;
+    background-color: rgb(189, 210, 255);
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: center;
+    border-radius: 50px;
+}
+
+.precio-ind {
+    width: 25%;
+    background-color: rgb(189, 210, 255);
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: center;
+    border-radius: 50px;
+}
+
+.cantidad-vendida-ind {
+    width: 20%;
+    background-color: rgb(189, 210, 255);
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: center;
+    border-radius: 50px;
+}
+
+.ingreso-producto-rep-ind {
+    width: 25%;
+    background-color: rgb(189, 210, 255);
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: center;
+    border-radius: 50px;
+}
+
+.contenedor-informacion-producto {
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    background: white;
+    border-radius: 20px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.contenedor-info-producto {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.espacio-info-producto-ind {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/*-------------------------------------*/
+/*PANTALLA DE ADMINISTRACIÓN DE PERSONAL*/
+/*-------------------------------------*/
+.contenedor-principal-administracion-per {
+    padding-top: 150px;
+    width: 70%;
+    margin: auto;
+}
+
+.contenedor-uno-administracion {
+    width: 100%;
+}
+
+.Info-reporte-prod-selec {
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    background: white;
+    border-radius: 20px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.producto-nombre-selec {
+    background: rgb(190, 200, 242);
+    align-items: center;
+    padding: 5px 20px;
+    border-radius: 50px;
+    width: 30%;
+    text-align: center;
+}
+
+.contenedor-infos-folios {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.folios-fecha-periodo-vent {
+    width: 100%;
+}
+
+.info-fecha-v-periodo {
+    width: 100%;
+    font-family: 'Open Sans', sans-serif;;
+    font-weight: 800;
+    font-size: 18px;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.desc-id-prod-ind {
+    width: 20%;
+    background-color: rgb(189, 210, 255);
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: center;
+    border-radius: 50px;
+}
+
+.desc-precio-ind {
+    width: 25%;
+    background-color: rgb(189, 210, 255);
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: center;
+    border-radius: 50px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.desc-cantidad-vendida-ind {
+    width: 20%;
+    background-color: rgb(189, 210, 255);
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: center;
+    border-radius: 50px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.desc-ingreso-d-prod-ind {
+    width: 25%;
+    background-color: rgb(189, 210, 255);
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: center;
+    border-radius: 50px;
+}
+
+.id-producto-rep-ind {
+    width: 20%;
+    background-color: rgb(189, 210, 255);
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: center;
+    border-radius: 50px;
+}
+
+.precio-ind {
+    width: 25%;
+    background-color: rgb(189, 210, 255);
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: center;
+    border-radius: 50px;
+}
+
+.cantidad-vendida-ind {
+    width: 20%;
+    background-color: rgb(189, 210, 255);
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: center;
+    border-radius: 50px;
+}
+
+.ingreso-producto-rep-ind {
+    width: 25%;
+    background-color: rgb(189, 210, 255);
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: center;
+    border-radius: 50px;
+}
+
+.contenedor-informacion-producto {
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    background: white;
+    border-radius: 20px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.contenedor-info-producto {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.espacio-info-producto-ind {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/*---------------------------------*/
+/*Configuracion de detalles*/
+/*---------------------------------*/
+
+.cont-g{
+    padding-top: 150px;
+    width: 90%;
+    margin: auto;
+    padding-bottom: 40px;
+}
+
+/*Estilo y diseño de la barra de busqueda*/
+.barraBusqueda {
+    display: flex;
+    flex-direction: row;
+    background-color: #fff;
+    border-radius: 22px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    align-items: center;
+    padding: 2px;
+    margin-right: 20px;
+    margin-left: -40% ;
+}
+
+.iconoBusqueda {
+    width: 30px;
+    height: 30px;
+}
+
+.busBox {
+    border: none;
+    outline: none;
+    border-radius: 25px;
+    width: 200px;
+    padding: 10px;
+    font-size: 16px;
+    width: 300px;
+}
+
+.contenedor-2{
+    width: 80%;
+    margin-left: 10%;
+    background-color: #ffffff;
+    border-radius: 20px;
+    padding-top: 3%;
+    padding-bottom: 3%;
+}
+
+/*---------------------------------*/
+/*PANTALLA DE GESTION DE ARTICULOS*/
+/*---------------------------------*/
+
+
+
+
+/*---------------------------------*/
+/*PANTALLA DE GESTION DE PERSONAL*/
+/*---------------------------------*/
+/*diseño de la pantalla administracion de persnonal */
+.cont-prin {
+    padding-top: 150px;
+    width: 90%;
+    margin: auto;
+    padding-bottom: 40px;
+}
+
+.cont-pers-agreaga-buscador {
+    width: 90%;
+    margin-left: 5%;
+    padding: 20px;
+    background: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-radius: 20px;
+    align-items: center;
+}
+
+.titulo-btn-a {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.titulo-per-adm {
+    font-family: 'Open Sans', sans-serif;;
+    font-weight: 800;
+    font-size: 30px;
+    color: black;
+    margin-right: 10px;
+    padding: 5px 20px;
+}
+
+.btn-agreg-per {
+    font-family: 'Open Sans', sans-serif;;
+    font-size: 20px;
+    color: rgb(234, 234, 234);
+    padding: 5px 20px;
+    border-radius: 50px;
+    background: rgb(92, 123, 173);
+    text-align: center;
+    align-items: center;
+    margin-left: 10px;
+}
+
+a{
+    color: #ffffff;
+}
+
+
+
+/*---------------------------------*/
+/*PANTALLA PARA EDITAR UN ARTICULO*/
+/*---------------------------------*/
+
+/*---------------------------------*/
+/*PANTALLA PARA EDITAR PERSONAL*/
+/*---------------------------------*/
+.cont-ed-per{
+    background: #ffffff;
+    border-radius: 20px;
+    width: 50%;
+    height: auto;
+    margin-left: 25%;
+    padding-top: 5%;
+    padding-bottom: 3%;
+}
+
+.titulo-ed-per p{
+    font-size: 50px;
+    text-align: center;
+    margin-bottom: 5%;
+}
+
+.pipipi{
+    width: 100%;
+    margin-left: 4%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.pipipi label{
+    margin-left: 15%;
+    display: block;
+    margin-top: 3%;
+    transition: 0.5s ease-in-out all;
+    pointer-events: none;
+    color: black;
+
+}
+
+input:focus~label{
+    top: -14px;
+}
+
+.pipipi input{
+    width: 70%;
+    margin-left: 12%;
+    padding: 10px 10px 10px 5px;
+    border: none;
+    border-bottom: 2px solid black;
+    font-size: 16px;
+}
+
+.pipipi input:focus{
+    background-color: #ffffff;
+    outline: none;
+}
+
+.pipipi select{
+    width: 70%;
+    margin-left: 12%;
+    padding: 10px 10px 10px 5px;
+    border: none;
+    border-bottom: 2px solid black;
+}
+
+.cont-btn-gc{
+    padding-top: 20px;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+
+.btn-g-c {
+    width: 250px;
+    border: none;
+    border-radius: 40px;
+    padding: 10px 0;
+    background: rgb(92, 123, 173);
+    color: rgb(255, 255, 255);
+    text-align: center;
+    margin: auto;
+    font-size: 16px;
+}
+
+.btn-g-c:hover {
+    transition: all 0.5s;
+    background: rgb(212, 226, 248);
+    color: black;
+}
+
+.btn-g-c-2 {
+    width: 250px;
+    border: none;
+    border-radius: 40px;
+    padding: 10px 0;
+    background: rgb(92, 123, 173);
+    color: rgb(255, 255, 255);
+    text-align: center;
+    margin: auto;
+    font-size: 16px;
+}
+
+.btn-g-c-2:hover {
+    transition: all 0.5s;
+    background: rgb(212, 226, 248);
+    color: black;
+}
+
+.btn-g-c-3 {
+    width: 250px;
+    border: none;
+    border-radius: 40px;
+    padding: 10px 0;
+    background: rgb(92, 123, 173);
+    color: rgb(255, 255, 255);
+    text-align: center;
+    margin: auto;
+    font-size: 16px;
+}
+
+.btn-g-c-3:hover {
+    transition: all 0.5s;
+    background: rgb(212, 226, 248);
+    color: black;
+}
+
+input:disabled {
+    background: #ffffff;
+  }
+
+/*Tambla*/
+.container {
+    border: solid 3px rgba(0, 0, 0, 0.2);
+    display: block;
+    width: 90%;
+    margin-left: 5%;
+    margin-top: 3%;
+    border-radius: 10px;
+}
+
+table {
+    color: #000000;
+    font-size: 14px;
+    table-layout: fixed;
+    border-collapse: collapse;
+    width:100% ;
+}
+
+thead {
+    background: rgba(148, 173, 184, 0.655);
+}
+
+
+th {
+    margin-left: 15px;
+    padding: 20px 15px ;
+    font-weight: 700;
+    border-bottom: solid 2px rgba(0, 0, 0, 0.2);
+}
+
+.enca-n{
+    text-transform: uppercase;
+}
+
+.info-per{
+    background-color: #ffffff;
+}
+
+.btn-selec-prod-reporte {
+    margin-top: 10px;
+    border: none;
+    border-radius: 50px;
+    padding: 10px 15px;
+    background: rgb(92, 123, 173);
+    color: rgb(255, 255, 255);
+    text-align: center;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.btn-selec-prod-reporte:hover {
+    background: rgb(126, 157, 208);
+}
+
+
+.btn-ed:hover {
+    transition: all 0.5s;
+    background: rgb(212, 226, 248);
+    color: black;
+}
+
+.btn-ba {
+    border-radius: 50px;
+    padding: 10px 20px;
+    background: rgb(154, 189, 253);
+    color: rgb(0, 0, 0);
+    text-align: center;
+}
+
+.btn-ba:hover {
+    transition: all 0.5s;
+    background: rgb(197, 219, 255);
+    color: black;
+}
+
+.felipe{
+    width: 50px;
+    height: 50px;
+    margin: -10px;
+}
+
+div#div-file{
+    border-radius: 50px;
+    position: relative;
+    margin-top: 3%;
+    margin-left: 13%;
+    padding: 10px;
+    width: 70%;
+    background: rgb(182, 164, 214);
+}
+
+p#texto{
+    text-align: center;
+    background-color: rgb(182, 164, 214);
+}
+
+input#btn-enviar{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+   
+    
+}
+
+/*---------------------------------*/
+/*PANTALLA PARA AGREGAR UN ARTICULO*/
+/*---------------------------------*/
+
+/*---------------------------------*/
+/*PANTALLA PARA AGREGAR PERSONAL*/
+/*---------------------------------*/
+
+
+
+/*------------------------------------------------------*/
+/*-----------------RESPONSIVE DESIGN--------------------*/
+/*------------------------------------------------------*/
+@media screen and (max-width: 1000px) {
+    .contenedor-principal {
+        width: 80%;
+    }
+
+    .contenedor-uno {
+        grid-template-areas: "tarjeta-admin-pers-prod tarjeta-admin-pers-prod tarjeta-admin-pers-prod tarjeta-reporte-personal tarjeta-reporte-personal tarjeta-reporte-personal tarjeta-reporte-personal tarjeta-reporte-personal"
+                                "tarjeta-reporte-producto tarjeta-reporte-producto tarjeta-reporte-producto tarjeta-reporte-producto tarjeta-reporte-ventas tarjeta-reporte-ventas tarjeta-reporte-ventas tarjeta-reporte-ventas";
+    }
+
+    .contenedor-espacios-vent {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .espacio-izquierdo {
+        width: 100%;
+    }
+
+    .espacio-derecho {
+        width: 100%;
+        padding-top: 20px;
+        margin: auto;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+    }
+}
+
+@media screen and (max-width: 880px) {
+    .contenedor-principal {
+        width: 80%;
+    }
+
+    .contenedor-uno {
+        grid-gap: 20px;
+        grid-template-columns: repeat(8, 1fr) ;
+        grid-template-rows: repeat(4, auto);
+        grid-template-areas: "tarjeta-admin-pers-prod tarjeta-admin-pers-prod tarjeta-admin-pers-prod tarjeta-admin-pers-prod tarjeta-admin-pers-prod tarjeta-admin-pers-prod tarjeta-admin-pers-prod tarjeta-admin-pers-prod"
+                            "tarjeta-reporte-personal tarjeta-reporte-personal tarjeta-reporte-personal tarjeta-reporte-personal tarjeta-reporte-personal tarjeta-reporte-personal tarjeta-reporte-personal tarjeta-reporte-personal"
+                            "tarjeta-reporte-producto tarjeta-reporte-producto tarjeta-reporte-producto tarjeta-reporte-producto tarjeta-reporte-producto tarjeta-reporte-producto tarjeta-reporte-producto tarjeta-reporte-producto"
+                            "tarjeta-reporte-ventas tarjeta-reporte-ventas tarjeta-reporte-ventas tarjeta-reporte-ventas tarjeta-reporte-ventas tarjeta-reporte-ventas tarjeta-reporte-ventas tarjeta-reporte-ventas";
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .hola-admin {
+        display: none;
+    }
+
+    .btn-activo {
+        background: rgb(242, 244, 254);
+        margin-left: 15px;
+        padding: 5px 15px;
+        border-radius: 50px;
+        color: rgb(41, 41, 41);
+    }
+}
+
+@media screen and (max-width: 400px) {
+    header {
+        width: 100%;
+        height: 100px;
+        position: fixed;
+        background: rgb(54, 60, 85);
+    }
+    
+    nav {
+        width: 100%;
+        margin: 0 5%;
+        height: 70px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .hola-admin {
+        display: none;
+    }
+    
+    .contenedor-uno .tarjeta-reporte-personal {
+        grid-area: tarjeta-reporte-personal;
+        border-radius: 20px;
+        background: white;
+        box-shadow: 2px 4px 15px 0 rgb(220, 220, 220);
+        padding: 20px;
+    }
+
+    .titulo-reporte-pers {
+        font-family: 'Open Sans', sans-serif;;
+        font-weight: 800;
+        font-size: 18px;
+    }
+
+    .contenido-reporte-pers {
+        width: 100%;
+        margin-top: 40px;
+    }
+
+    .titulo-filtro {
+        width: 200px;
+        font-size: 18px;
+        color: rgb(59, 59, 59);
+        text-align: center;
+        padding-top: 5px;
+        padding-bottom:5px;
+        border-radius: 50px;
+    }
+
+    .titulo-f-fecha {
+        width: 100px;
+        background: rgb(197, 198, 244);
+        padding-top: 5px;
+        padding-bottom: 5px;
+        border-radius: 50px;
+        text-align: center;
+    }
+
+    .fecha-p {
+        padding: 5px 10px;
+        border-radius: 50px;
+        border: 2px solid rgb(0, 0, 0);
+        margin-top: 10px;
+    }
+
+    .filtro-periodo {
+        width: 100%;
+        padding-top: 20px;
+        margin: auto;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+    }
+
+    .titulo-f-periodo {
+        width: 120px;
+        background: rgb(197, 198, 244);
+        padding-top: 5px;
+        padding-bottom: 5px;
+        border-radius: 50px;
+        text-align: center;
+    }
+
+    .entradas-periodo {
+        padding-top: 10px;
+        display: flex;
+        flex-direction: row;
+        margin: auto; 
+    }
+
+    .fecha-uno-per {
+        padding: 5px 10px;
+        border-radius: 50px;
+        border: 2px solid rgb(0, 0, 0);
+        margin-right: 4px;
+    }
+
+    .fecha-dos-per {
+        padding: 5px 10px;
+        border-radius: 50px;
+        border: 2px solid rgb(0, 0, 0);
+        margin-left: 4px;
+    }
+
+    .btns-gen-reporte-personal {
+        padding-top: 20px;
+        margin: auto;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+    }
+
+
+}
+
+
+@media screen and (max-width: 1400px) {
+    .contenedor-principal-rep-cocina-fecha {
+        width: 80%;
+    }
+
+    .contenedor-principal-rep-cocina-periodo {
+        width: 80%;
+    }
+
+    .contenedor-principal-rep-caja-fecha {
+        width: 80%;
+    }
+
+    .contenedor-principal-rep-caja-periodo {
+        width: 80%;
+    }
+
+    .contenedor-principal-rep-entrega-fecha {
+        width: 80%;
+    }
+
+    .contenedor-principal-rep-entrega-periodo {
+        width: 80%;
+    }
+
+    .contenedor-principal-rep-venta-fecha {
+        width: 90%;
+    }
+
+    .contenedor-principal-rep-venta-periodo {
+        width: 90%;
+    }
+
+    .contenedor-principal-rep-producto-fecha {
+        width: 90%;
+    }
+
+    .contenedor-principal-rep-producto-fecha-ind {
+        width: 90%;
+    }
+
+    .contenedor-principal-rep-producto-periodo-ind {
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .contenedor-principal-rep-cocina-fecha {
+        width: 90%;
+    }
+
+    .contenedor-principal-rep-cocina-periodo {
+        width: 90%;
+    }
+
+    .contenedor-principal-rep-caja-fecha {
+        width: 90%;
+    }
+
+    .contenedor-principal-rep-caja-periodo {
+        width: 90%;
+    }
+
+    .contenedor-principal-rep-entrega-fecha {
+        width: 90%;
+    }
+
+    .contenedor-principal-rep-entrega-periodo {
+        width: 90%;
+    }
+
+    .contenedor-principal-rep-venta-fecha {
+        width: 90%;
+    }
+
+    .contenedor-principal-rep-producto-fecha {
+        width: 90%;
+    }    
+}
+
+@media screen and (max-width: 1150px) {
+    .desc-cliente-v {
+        width: 40%;
+    }
+
+    .cliente-rep-v {
+        width: 40%;
+    }
+
+    .desc-total-v {
+        width: 20%;
+    }
+    
+    .total-comp-rep-v {
+        width: 20%;
+    }
+
+    .Info-reporte-prod-periodo {
+        width: 100%;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        background: white;
+        border-radius: 20px;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .info-periodo-selec-prod {
+        margin-top: 20px;
+    }
+
+    .producto-nombre-selec-periodo {
+        margin-bottom: 0;
+    }
+
+
+}
+
+@media screen and (max-width: 980px) {
+    .desc-cliente-v {
+        width: 40%;
+    }
+
+    .cliente-rep-v {
+        width: 40%;
+        font-size: 15px;
+    }
+
+    .producto-nombre-selec-periodo {
+        width: 70%;
+    }
+}
+
+
+@media screen and (max-width: 900px) {
+    .desc-id {
+        width: 20%;
+        background-color: rgb(189, 210, 255);
+        padding-top: 5px;
+        padding-bottom: 5px;
+        text-align: center;
+        border-radius: 50px;
+    }
+    
+    .dec-nombre {
+        width: 45%;
+        background-color: rgb(189, 210, 255);
+        padding-top: 5px;
+        padding-bottom: 5px;
+        text-align: center;
+        border-radius: 50px;
+    }
+    
+    .desc-pedidos-prep {
+        width: 30%;
+        background-color: rgb(189, 210, 255);
+        padding-top: 5px;
+        padding-bottom: 5px;
+        text-align: center;
+        border-radius: 50px;
+    }
+
+    .desc-pedidos-entr {
+        width: 30%;
+        background-color: rgb(189, 210, 255);
+        padding-top: 5px;
+        padding-bottom: 5px;
+        text-align: center;
+        border-radius: 50px;
+    }
+
+    .pedidos-prep-empleado-rep {
+        width: 30%;
+    }
+
+    .pedidos-prep-empleado-rep-periodo {
+        width: 30%;
+    }
+
+    .pedidos-cobr-empleado-rep {
+        width: 30%;
+    }
+
+    .pedidos-cobr-empleado-rep-periodo {
+        width: 30%;
+    }
+
+    .pedidos-entr-empleado-rep {
+        width: 30%;
+    }
+
+    .pedidos-entr-empleado-rep-periodo {
+        width: 30%;
+    }
+
+    .desc-acciones {
+        display: none;
+    }
+
+    .desc-id {
+        width: 20%;
+        background-color: rgb(189, 210, 255);
+        padding-top: 5px;
+        padding-bottom: 5px;
+        text-align: center;
+        border-radius: 50px;
+    }
+
+    .id-empleado-rep {
+        width: 20%;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        text-align: center;
+        border-radius: 50px;
+    }
+    
+    .dec-nombre {
+        width: 45%;
+        background-color: rgb(189, 210, 255);
+        padding-top: 5px;
+        padding-bottom: 5px;
+        text-align: center;
+        border-radius: 50px;
+    }
+    
+    .desc-pedidos-prep {
+        width: 30%;
+        background-color: rgb(189, 210, 255);
+        padding-top: 5px;
+        padding-bottom: 5px;
+        text-align: center;
+        border-radius: 50px;
+    }
+
+    .desc-pedidos-cobr {
+        width: 30%;
+        background-color: rgb(189, 210, 255);
+        padding-top: 5px;
+        padding-bottom: 5px;
+        text-align: center;
+        border-radius: 50px;
+    }
+
+    
+}
+
+@media screen and (max-width: 890px) {
+
+    .Info-reporte-p-cocina-periodo {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .Info-reporte-p-caja-periodo {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .Info-reporte-p-entrega-periodo {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .info-periodo-selec {
+        margin-top: 20px;
+    }
+
+    .Info-reporte-venta-periodo {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .info-periodo-selec-venta {
+        margin-top: 20px;
+    }
+
+    .contenedor-principal-rep-producto-periodo {
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 855px) {
+    .Info-reporte-prod-selec {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .producto-nombre-selec {
+        width: 70%;
+    }
+
+    .producto-nombre-selec {
+        margin-top: 20px;
+    }
+
+    .info-fecha-selec-prod {
+        margin-top: 20px;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .desc-cliente-v {
+        display: none;
+    }
+
+    .cliente-rep-v {
+        display: none;
+    }
+
+    .desc-fecha-v {
+        width: 30%;
+    }
+    
+    .desc-folio-v {
+        width: 30%;
+    }
+    
+    .desc-total-v {
+        width: 30%;
+    }
+
+    .fecha-folio-rep-v {
+        width: 30%;
+    }
+     
+    .folio-rep-v {
+        width: 30%;
+    }
+    
+    .total-comp-rep-v {
+        width: 30%;
+    }
+
+    /*pantalla reporte de ventas-fecha*/
+    .desc-total-v-fecha {
+        width: 25%;
+    }
+
+    .total-comp-rep-v-fecha {
+        width: 25%;
+    }
+
+    .cliente-rep-v-fecha {
+        font-size: 15px;
+    }
+
+    .total-comp-rep-v-fecha {
+        width: 55%;
+    }
+
+    .desc-total-v-fecha {
+        width: 55%;
+    }
+
+    .desc-folio-v-fecha {
+        width: 40%;
+    }
+
+    .folio-rep-v-fecha {
+        width: 40%;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .contenedor-principal-rep-venta-fecha {
+        width: 80%;
+    }
+
+    .contenedor-principal-rep-producto-fecha {
+        width: 80%;
+    }
+
+    .Info-reporte-venta {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .info-fecha-selec-venta {
+        margin-top: 20px;
+    }
+
+    /*pantalla reporte de ventas-fecha*/
+    .desc-cliente-v-fecha {
+        display: none;
+    }
+
+    .cliente-rep-v-fecha {
+        display: none;
+    }
+/*---------*/
+    .desc-nombre-prod {
+        display: none;
+    }
+
+    .nombre-producto-rep {
+        display: none;
+    }
+
+    .desc-id-prod {
+        width: 40%;
+    }
+
+    .id-producto-rep {
+        width: 40%;
+    }
+
+    .desc-cantidad-prod {
+        width: 50%;
+    }
+
+    .cant-productos-rep {
+        width: 50%;
+    }
+
+    /*PANTALLA REPORTE PRODUCTOS CANTIDAD*/
+    .Info-reporte-prod {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .info-fecha-selec-prod {
+        margin-top: 20px;
+    }
+
+    .cant-productos-rep-pe {
+        width: 50%;
+    }
+
+    /*PANTALLA REPORTE DE PRODUCTOS POR INGRESO POR FECHA*/
+    .desc-ingreso-prod {
+        width: 50%;
+    }
+
+    .ingreso-productos-rep {
+        width: 50%;
+    }
+
+    /*PANTALLA REPORTE DE PRODUCTOS POR INGRESO POR PERIODO*/
+    .ingreso-productos-rep-pe {
+        width: 50%;
+    }
+    section {
+        min-width: 650px;
+    }
+
+    .container-log {
+        max-width: 630px;
+        margin-right: 10px;
+        margin-left: 10px;
+    }
+}
+
+@media screen and (max-width: 680px) {
+    .contenedor-principal-rep-cocina-fecha {
+        width: 70%;
+    }
+
+    .contenedor-principal-rep-caja-fecha {
+        width: 70%;
+    }
+
+    .contenedor-principal-rep-entrega-fecha {
+        width: 70%;
+    }
+
+    .contenedor-principal-rep-cocina-periodo {
+        width: 90%;
+    }
+
+    .contenedor-principal-rep-caja-periodo {
+        width: 90%;
+    }
+
+    .contenedor-principal-rep-entrega-periodo {
+        width: 90%;
+    }
+
+    .contenedor-principal-rep-producto-fecha {
+        width: 90%;
+    }
+
+    .Info-reporte-p-cocina {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .Info-reporte-p-caja {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .Info-reporte-p-entrega {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .Info-reporte-p-cocina-periodo {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .Info-reporte-p-caja-periodo {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .Info-reporte-p-entrega-periodo {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+
+    .info-fecha-selec {
+        margin-top: 20px;
+    }
+
+    .dec-nombre {
+        display: none;
+    }
+
+    .desc-id {
+        width: 40%;
+    }
+    
+    .desc-pedidos-prep {
+        width: 50%;
+    }
+
+    .desc-pedidos-cobr {
+        width: 50%;
+    }
+
+    .desc-pedidos-entr {
+        width: 50%;
+    }
+
+
+    .Info-reporte-p-cocina {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .info-fecha-selec {
+        margin-top: 20px;
+    }
+
+    .dec-nombre {
+        display: none;
+    }
+
+    .desc-id {
+        width: 40%;
+    }
+
+    .id-empleado-rep {
+        width: 40%;
+    }
+
+    .nombre-empleado-rep {
+        display: none;
+    }
+
+    .pedidos-prep-empleado-rep {
+        width: 50%;
+    }
+
+    .pedidos-cobr-empleado-rep {
+        width: 50%;
+    }
+
+    .pedidos-entr-empleado-rep {
+        width: 50%;
+    }
+
+    .pedidos-prep-empleado-rep-periodo {
+        width: 50%;
+    }
+
+    .pedidos-cobr-empleado-rep-periodo {
+        width: 50%;
+    }
+
+    .pedidos-entr-empleado-rep-periodo {
+        width: 50%;
+    }
+
+}
+
+@media screen and (max-width: 600px) {
+    .contenedor-principal-rep-producto-fecha-ind {
+        min-width: 550px;
+    }
+
+    .contenedor-principal-rep-producto-periodo-ind {
+        min-width: 550px;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .contenedor-principal-rep-cocina-fecha {
+        width: 90%;
+    }
+
+    .contenedor-principal-rep-caja-fecha {
+        width: 90%;
+    }
+
+    .contenedor-principal-rep-entrega-fecha {
+        width: 90%;
+    }
+
+    .contenedor-principal-rep-venta-fecha {
+        width: 90%;
+    }
+
+    .desc-id {
+        width: 30%;
+    }
+
+    .id-empleado-rep {
+        width: 30%;
+    }
+    
+    .desc-pedidos-prep {
+        width: 60%;
+    }
+
+    .desc-pedidos-cobr {
+        width: 60%;
+    }
+
+    .desc-pedidos-entr {
+        width: 60%;
+    }
+
+    .pedidos-prep-empleado-rep {
+        width: 60%;
+    }
+
+    .pedidos-cobr-empleado-rep {
+        width: 60%;
+    }
+
+    .pedidos-entr-empleado-rep {
+        width: 60%;
+    }
+
+    .desc-id {
+        width: 30%;
+    }
+
+    .id-empleado-rep {
+        width: 30%;
+    }
+
+    .pedidos-prep-empleado-rep-periodo {
+        width: 60%;
+    }
+
+    .pedidos-cobr-empleado-rep-periodo {
+        width: 60%;
+    }
+
+    .pedidos-entr-empleado-rep-periodo {
+        width: 60%;
+    }
+
+    header {
+        min-width: 100%;
+    }
+    
+    nav {
+        max-width: 550px;
+        margin: auto;
+    }
+}
+
+@media screen and (max-width: 560px) {
+    .desc-total-v {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}
+
+@media screen and (max-width: 540px) {
+    .desc-total-v {
+        border-radius: 10px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .info-periodo-selec {
+        background: rgb(169, 184, 244);
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        width: 320px;
+        height: 50px;
+        border-radius: 50px;
+        justify-content: space-between;
+        padding-left: 20px;
+        padding-right: 10px;
+    }
+
+    .info-periodo-selec-prod {
+        background: rgb(169, 184, 244);
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        width: 320px;
+        height: 50px;
+        border-radius: 50px;
+        justify-content: space-between;
+        padding-left: 20px;
+        padding-right: 10px;
+    }
+
+    .info-periodo-selec-venta {
+        background: rgb(169, 184, 244);
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        width: 320px;
+        height: 50px;
+        border-radius: 50px;
+        justify-content: space-between;
+        padding-left: 20px;
+        padding-right: 10px;
+    }
+
+    .info-periodo-selec-prod {
+        background: rgb(169, 184, 244);
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        width: 320px;
+        height: 50px;
+        border-radius: 50px;
+        justify-content: space-between;
+        padding-left: 20px;
+        padding-right: 10px;
+    }
+
+    .espacio-info-fechas-periodo-venta {
+        width: 75%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .fecha-uno-selec-v-rep {
+        background: rgb(240, 240, 240);
+        padding: 8px 12px;
+        border-radius: 50px;
+        font-size: 15px;
+    }
+    
+    .fecha-dos-selec-v-rep {
+        background: rgb(240, 240, 240);
+        padding: 8px 12px;
+        border-radius: 50px;
+        font-size: 15px;
+    }
+    
+    .espacio-info-fechas-periodo {
+        width: 75%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    
+    .elemento-info-periodo {
+        color: rgb(59, 59, 59);
+        font-size: 15px;
+    }
+    
+    .fecha-uno-selec-p-rep {
+        background: rgb(240, 240, 240);
+        padding: 8px 12px;
+        border-radius: 50px;
+        font-size: 15px;
+    }
+
+    .fecha-uno-selec-prod-rep {
+        background: rgb(240, 240, 240);
+        padding: 8px 12px;
+        border-radius: 50px;
+        font-size: 15px;
+    }
+
+    .fecha-dos-selec-prod-rep {
+        background: rgb(240, 240, 240);
+        padding: 8px 12px;
+        border-radius: 50px;
+        font-size: 15px;
+    }
+    
+    .fecha-dos-selec-p-rep {
+        background: rgb(240, 240, 240);
+        padding: 8px 12px;
+        border-radius: 50px;
+        font-size: 15px;
+    }
+
+    .info-periodo-selec-prod {
+        width: 300px;
+    }
+
+    
+}
+
+@media screen and (max-width: 400px) {
+    
+
+    .contenedor-principal-rep-cocina-fecha {
+        min-width: 350px;
+    }
+
+    .contenedor-principal-rep-caja-fecha {
+        min-width: 350px;
+    }
+
+    .contenedor-principal-rep-entrega-fecha {
+        min-width: 350px;
+    }
+
+    .contenedor-principal-rep-venta-fecha {
+        min-width: 350px;
+    }
+
+    .contenedor-principal-rep-cocina-periodo {
+        min-width: 350px;
+    }
+
+    .contenedor-principal-rep-caja-periodo {
+        min-width: 350px;
+    }
+
+    .contenedor-principal-rep-entrega-periodo {
+        min-width: 350px;
+    }
+
+    .contenedor-principal-rep-venta-periodo {
+        min-width: 350px;
+    }
+
+    .contenedor-principal-rep-venta-fecha {
+        min-width: 350px;
+    }
+
+    .contenedor-principal-rep-venta-fecha {
+        min-width: 350px;
+    }
+
+    .contenedor-principal-rep-producto-periodo {
+        min-width: 350px;
+    }
+
+
+    .contenedor-uno-reportes {
+        min-width: 350px;
+
+    }   
+    
+    .contenedor-principal {
+        min-width: 350px;
+    }
+
+    .contenedor-principal-rep-producto-fecha {
+        min-width: 350px;
+    }
+}
+
+@media screen and (max-width: 150px) {
+    .btn-inicio {
+        display: none;
+    }
+
+    .btn-activo {
+        display: none;
+    }
+}
+
+@media(max-width:1150px){
+    /*diseño de la pantalla administracion de persnonal */
+    .cont-prin {
+        padding-top: 150px;
+        width: 100%;
+        margin: auto;
+        padding-bottom: 40px;
+    }
+
+    .contenedor-2 {
+        width: 95%;
+        margin: auto;
+    }
+
+    .barraBusqueda {
+        margin-left: 5% ;
+        margin-top: 3%;
+    }
+
+    .cont-pers-agreaga-buscador{
+        display: flex;
+        flex-direction: column;
+    }    
+}
+
+@media(max-width:1100px){
+    .titulo-ed-per p{
+        font-size: 40px;
+        text-align: center;
+        margin-bottom: 5%;
+    }
+
+    .cont-ed-per{
+        width: 70%;
+        margin-left: 15%;
+
+    }
+}
+
+@media(max-width:850px){
+    .cont-prin {
+        min-width: 800px;
+        margin: auto;
+    }
+
+    .contenedor-2 {
+        width: 95%;
+    }
+
+    .titulo-ed-per p{
+        font-size: 30px;
+        text-align: center;
+        margin-bottom: 5%;
+    }
+
+    .cont-ed-per{
+        width: 70%;
+        margin-left: 15%;
+
+    }
+}
+
+@media(max-width:700px){
+    .titulo-ed-per p{
+        font-size: 30px;
+    }
+
+    .cont-ed-per{
+        width: 80%;
+        margin-left: 10%;
+
+    }
+
+    .btn-ed {
+        padding: 10px 14px;
+
+    }
+    
+    .btn-ba {
+        padding: 10px 14px;
+
+    }
+
+    
+}
+
+
+@media(max-width:650px){
+    .cont-ed-per{
+        width: 90%;
+        margin-left: 5%;
+        padding-bottom: 5%;
+
+    }
+}
+
+
+@media(max-width:600px){
+    .titulo-ed-per p{
+        font-size: 30px;
+    }
+
+    .cont-ed-per{
+        width: 90%;
+        margin-left: 5%;
+        padding-bottom: 5%;
+
+    }  
+}
+
+@media(max-width:550px){
+    .titulo-ed-per p{
+        font-size: 30px;
+    }
+
+    .cont-ed-per{
+        width: 90%;
+        margin-left: 5%;
+        padding-bottom: 5%;
+
+    }
+}
+
+
+@media screen and (max-width: 500px) {
+    .hola-admin {
+        display: none;
+    }
+
+    
+    .btn-inicio-uni {
+        background: rgb(242, 244, 254);
+        margin-left: 15px;
+        padding: 5px 15px;
+        border-radius: 50px;
+        color: rgb(41, 41, 41);
+    }
+
+    .titulo-ed-per p{
+        margin-top: 3%;
+        margin-bottom: 3%;
+        font-size: 30px;
+    }
+
+    .cont-g {
+        width: 450px;
+        margin: auto;
+    }
+
+    .cont-ed-per {
+        width: 100%;
+    }
+}
+
+
+@media(max-width:450px){
+    .titulo-ed-per p{
+        font-size: 30px;
+        margin-top: 3%;
+    }
+
+    .pipipi{
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .hola-admin {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 150px) {
+    .btn-inicio-uni {
+        display: none;
+    }
+}

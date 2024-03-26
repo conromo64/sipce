@@ -1,0 +1,50 @@
+<div class="contenedor-general">
+    <div class="containerPP">
+        <!--TODO: Titulo-->
+        <div class="info-folio">
+            <div class="folio">
+                <h1>Folio {{Folio}}</h1>
+            </div>
+        </div>
+
+
+        <div class="progress-barp">
+            <a>Listo</a>
+            <div class="line"></div>
+        </div>
+
+        <div class="infoPP">
+            <p class="correo">Compra de {{car.[0].correoUsuario}}</p>
+            <p class="fecha">El dia {{fecha}}</p>
+        </div>
+        <div class="tabla">
+            <!--TODO: Subtitulos-->
+            <div class="flex-box-infoPP">
+                <div class="box-Pr">Producto</div>
+                <div class="box-Ca">Cantidad</div>
+                <div class="box-To">Subtotal</div>
+            </div>
+            <!--TODO: I-->
+            <div class="contenido">
+                {{#each car}}
+                <div class="flex-box-iPP">
+                    <div class="b-Pr">{{nombre}}</div>
+                    <div class="b-Ca">{{Cantidad}}</div>
+                    <div class="b-To">${{total}}</div>
+                </div>
+                {{/each}}
+                <div class="flex-box-iPP">
+                    <div class="b-To-3">Total</div>
+                    <div class="b-Ca"></div>
+                    <div class="b-To-2">${{totales}}</div>
+                </div>
+
+
+            </div>
+            <div class="cont-btn">
+                <a href="/modificacaja/{{Folio}}" class="btn-l1">Confirmar pago</a>
+                <a href="/menucompra/{{Folio}} " class="btn-l2">Agregar</a>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,86 @@
+<script src="/js/validacionArticulo.js"></script>
+<div class="cont-g">
+	<div class="cont-ed-per">
+		<div class="titulo-ed-per">
+			<p>Editar Producto</p>
+		</div>
+		<!-- Se crea un formulario con la funcion de editar -->
+		{{#each per}}
+		<form class="form" action="/editarMen/{{id_art}}" method="post" enctype="multipart/form-data"
+			onsubmit="return validar ();">
+
+
+			<div class="pipipi">
+				<label for="nombre"> Nombre </label>
+				<input value="{{nombre}}" type="text" id="nombre" name="nombre" pattern="[A-Z a-z áéíóúÁÉÍÓÚñÑ]*"
+					minlength="3" maxlength="30" required>
+			</div>
+
+			<div class="pipipi">
+				<label for="tipo">Tipo de articulo</label>
+				<select name="tipo" required>
+					<option value="{{tipo}}">{{descripcion_tip}}</option>
+					{{/each}}
+					{{#each tip}}
+					<option value="{{tipo}}">{{descripcion_tip}}</option>
+					{{/each}}
+				</select>
+			</div>
+
+			{{#each per}}
+			<div class="pipipi">
+				<label for="descripcion"> Descripcion </label>
+				<input value="{{descripcion}}" id="descripcion" type="text" name="descripcion" minlength="4"
+					maxlength="1000" required>
+			</div>
+
+			<div class="pipipi">
+				<label for="costo"> Costo </label>
+				<input value="{{costo}}" id="costo" type="money" name="costo" minlength="1" maxlength="100"
+					pattern="[0-9]+" title="Pon numeros" required>
+			</div>
+
+			<div class="pipipi">
+				<label for="precio"> Precio </label>
+				<input value="{{precio}}" id="precio" type="money" name="precio" minlength="1" maxlength="40"
+					pattern="[0-9]+" title="Pon numeros" required>
+			</div>
+
+			<div class="pipipi">
+				<label for="unidad"> Tipo unidad </label>
+				<select name="unidad" required>
+					<option value="{{unidad}}">{{nombre_uni}}</option>
+					{{/each}}
+					{{#each uni}}
+					<option value="{{unidad}}">{{nombre_uni}}</option>
+					{{/each}}
+				</select>
+			</div>
+
+			{{#each per}}
+			<div class="pipipi">
+				<label for="existencia"> Existencia </label>
+				<input value="{{existencia}}" name="existencia" id="existencia" minlength="1" maxlength="1000"
+					pattern="[0-9]+" required>
+			</div>
+
+			{{/each}}
+
+			<div class="pipipi">
+				<label class="form-label">Imagen</label>
+				<div id="div-file">
+					<p id="texto">Agregar archivo</p>
+					<input class="btn-img" type="file" id="btn-enviar" name="image" accept=".jpg, .jpeg, .png">
+				</div>
+			</div>
+
+			{{#if error}}
+			<p class="submitError">{{error}}</p>
+			{{/if}}
+
+			<div class="cont-btn-gc">
+				<input type="submit" value="Guardar cambio" class="btn-g-c" id="btnCambProd">
+			</div>
+		</form>
+	</div>
+</div>

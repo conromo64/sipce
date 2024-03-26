@@ -1,0 +1,54 @@
+<script src="/js/validacion.js"></script>
+
+<section>
+    <form action="/entrar" method="post" class="login-form">
+        <div class="container-log">
+
+            <img src="/images/logoIco.ico" alt="Imagen" class="laimg">
+
+            <h2 class="titulo-i-s">Inicia sesión</h2>
+
+            <div class="forInput">
+                <input type="email" placeholder="" name="email" minlength="5" maxlength="50" requiered />
+                <label class="labelInp">Email</label>
+            </div>
+
+
+
+            <div class="forInput">
+                <input type="password" placeholder="" id="password" name="password" minlength="8" maxlength="25"
+                    requiered />
+                <label class="labelInp">Contraseña</label>
+                <div class="verContra" id="verContra"></div>
+            </div>
+
+            {{#if passwordErrors}}
+            <p style="color: black;">{{passwordErrors}}</p>
+            {{/if}}
+
+            <button type="submit" class="btn-inicio-sesion">Iniciar sesión</button>
+        </div>
+    </form>
+</section>
+
+<script>
+    function verPassword() {
+        const pass = document.getElementById('password');
+        const verContra = document.getElementById('verContra');
+
+        if (pass.type === 'password') {
+            pass.type = 'text';
+            verContra.classList.add('password-visible');
+            verContra.classList.remove('password-hidden');
+        } else {
+            pass.type = 'password';
+            verContra.classList.remove('password-visible');
+            verContra.classList.add('password-hidden');
+        }
+    }
+
+    const verContra = document.getElementById('verContra');
+    verContra.addEventListener('click', verPassword);
+
+
+</script>

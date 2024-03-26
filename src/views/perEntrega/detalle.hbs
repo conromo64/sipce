@@ -1,0 +1,60 @@
+<section>
+    <div class="container">
+        <!--TODO: Titulo-->
+        <div class="info-folio">
+            <div class="folio">
+                <h1>Folio {{Folio}}</h1>
+            </div>
+        </div>
+
+
+        <div class="progress-barp">
+            <a>Pagado</a>
+            <div class="line"></div>
+        </div>
+
+        <div class="info">
+            <p class="correo">Compra de {{car.[0].correoUsuario}}</p>
+            <p class="fecha">El día {{fecha}}</p>
+        </div>
+        <div class="tabla">
+            <!--TODO: Subtitulos-->
+            <div class="flex-box-info">
+                <div class="box-Pr">Producto</div>
+                <div class="box-Ca">Cantidad</div>
+                <div class="box-To">Subtotal</div>
+            </div>
+            <!--TODO: I-->
+            <div class="contenido">
+                {{#each car}}
+                <div class="flex-box-i">
+                    <div class="b-Pr">{{nombre}}</div>
+                    <div class="b-Ca">{{Cantidad}}</div>
+                    <div class="b-To">${{total}}</div>
+                </div>
+                 {{/each}}
+
+                <div class="flex-box-i">
+                    <div class="b-Pr"></div>
+                    <div class="b-Ca"></div>
+                    <div class="b-To-2">${{totales}}</div>
+                </div>
+
+                <div class="flex-box-i">
+                    <div class="b-Pr"></div>
+                    <div class="b-Ca"></div>
+                </div>
+
+                <div class="flex-box-i">
+                    <div class="b-Pr"></div>
+                    <div class="b-Ca"></div>
+                    <div class="b-To-to">Total</div>
+                </div>
+
+                <div class="btn-l1">
+                    <a href="/entregalis/{{Folio}}">Confirmar entrega</a>
+                </div>
+            </div>
+
+        </div>
+</section>

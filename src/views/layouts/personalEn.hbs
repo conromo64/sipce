@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entrega</title>
+    <!--Vinculo con la hoja de estilos-->
+    <link rel="stylesheet" href="/css/styles.css">
+    <!--Icono de la página-->
+    <link rel="icon" href="/images/logoIco.ico">
+    <script src="/js/qrCode.min.js"></script>
+</head>
+
+<header>
+    <nav>
+
+        <ul class="marca">
+            <li class="marca_logo">
+                <a href="/"><img src="/images/logoIco.ico" alt="" class="logo"></a>
+            </li>
+        </ul>
+
+        {{#if busca}}
+        <div class="barraBusqueda">
+            <img src="/images/lupa.png" class="iconoBusqueda">
+            <input id="buscador" type="text" class="busBox" placeholder="Buscar folio">
+        </div>
+        </div>
+
+
+
+        <div class="rqr">
+            <a href="/qrentrega">
+                <div class="iconoFondoBlanco">
+                    <img src="/images/icons8-qr-50.png" class="iconoQR">
+                </div>
+            </a>
+        </div>
+        {{/if}}
+
+
+
+        <!--USUARIO-->
+        <ul class="info_usuario">
+            <li class="elemento_usuario elem">
+                Hola {{name}}
+            </li>
+            <li class="elemento_usuario">
+                <img src="/images/persona.png" alt="" class="icono_usuario" id="userIcon">
+
+
+            </li>
+        </ul>
+
+
+
+        <div class="menu-escondido" id="subMenu">
+            <div class="sub-menu">
+                <h3 class="isaac">Hola usuario</h3>
+                <div class="max">
+                    <h3>{{name}}</h3>
+                    <h3>Personal de entrega</h3>
+                    <a href="/logout" class="btn-cerrarSesion">Cerrar sesión</a>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="usu">
+            Entrega
+        </h2>
+    </nav>
+
+</header>
+
+<body>
+    {{{body}}}
+</body>
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function() {
+  var button = document.getElementById("btn-pedidos");
+  var isToggle = false;
+
+  button.addEventListener("click", function(e) {
+    if (isToggle) {
+      // Cambiar el nombre del botón a "Pedidos en proceso" y volver al inicio de la página.
+      button.textContent = "Pedidos en proceso";
+      button.href = "#ped_proceso";
+    } else {
+      // Cambiar el nombre del botón a "Pedidos pendientes" y mantener el comportamiento predeterminado.
+      button.textContent = "Pedidos pendientes";
+      button.href = "#";
+    }
+
+    isToggle = !isToggle;
+  });
+});
+
+        document.addEventListener("DOMContentLoaded", function () {
+        let subMenu = document.getElementById("subMenu");
+        let menuIcon = document.getElementById("userIcon");
+
+        function toggleMenu(event) {
+            event.stopPropagation();
+            subMenu.classList.toggle("open-menu");
+        }
+
+        menuIcon.addEventListener("click", toggleMenu);
+
+        document.addEventListener("click", function (event) {
+            if (!subMenu.contains(event.target) && !menuIcon.contains(event.target)) {
+                subMenu.classList.remove("open-menu");
+            }
+        });
+    });
+
+    document.addEventListener("DOMContentLoaded", function () {
+        let subMenu = document.getElementById("subMenu");
+        let menuIcon = document.getElementById("menuIcon");
+
+        function toggleMenu(event) {
+            event.stopPropagation();
+            subMenu.classList.toggle("open-menu");
+        }
+
+        menuIcon.addEventListener("click", toggleMenu);
+
+        document.addEventListener("click", function (event) {
+            if (!subMenu.contains(event.target) && !menuIcon.contains(event.target)) {
+                subMenu.classList.remove("open-menu");
+            }
+        });
+    });
+</script>
+
+</html>

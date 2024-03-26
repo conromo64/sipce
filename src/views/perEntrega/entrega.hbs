@@ -1,0 +1,63 @@
+<script src="/js/filtro.js"></script>
+<style>
+    .filtro {
+        display: none;
+    }
+</style>
+<div class="contenedor_general">
+    <div class="contenedor_izquierdo">
+        <div class="nombre_pedidos_pendientes">
+            Pedidos Pendientes
+        </div>
+        <div class="caja_info-ppe">
+            <div class="caja_folio-ppe">
+                Folio
+            </div>
+            <div class="caja_total-ppe">
+                Total
+            </div>
+            <div class="caja_acciones-ppe">
+                Acciones
+            </div>
+        </div>
+        <!--Caja giganteee de pedidos-->
+        <div class="caja-pedidos-ppe" id="pedPro">
+            {{#if ped}}
+            {{#each ped}}
+            <div id="articulos" class="pedido_pendiente">
+                <div id="articulo" class="espacio_folio-ppe">
+                    {{Folio}}
+                </div>
+                <div class="espacio_total-ppe">
+                    ${{Precio}}
+                </div>
+                <div class="espacio_acciones-ppe">
+                    <a href="/modificaentrega/{{Folio}}" class="btn-ver_pedido-ppe">Ver pedido</a>
+                    <a href="/entregalis/{{Folio}}" class="btn-ver2_pedido-ppe">Entregar</a>
+                </div>
+
+            </div>
+            {{/each}}
+            {{else}}
+            <div class="no-ped">
+                No se encontró el pedido
+            </div>
+            {{/if}}
+
+        </div>
+
+    </div>
+</div>
+
+
+
+
+
+<script src="/socket.io/socket.io.js"></script>
+<script>
+    const socket = io();
+
+    socket.on('reloadEn', (msg) => {
+        location.reload()
+    });
+</script>

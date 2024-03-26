@@ -1,0 +1,34 @@
+<div class="contenedor-principal-rep-producto-periodo">
+    <div class="contenedor-uno-reportes">
+        <div class="Info-reporte-prod-periodo">
+            <h2 class="titulo-reporte-generado">Reporte de productos por cantidad</h2>
+            <div class="info-periodo-selec-prod">
+                <h3 class="elemento-info-periodo">Periodo</h3>
+                <div class="espacio-info-fechas-periodo">
+                    <div class="fecha-uno-selec-prod-rep">{{date1}}</div>
+                    <div class="fecha-dos-selec-prod-rep">{{date2}}</div>
+                </div>
+            </div>
+        </div>
+        <div class="espacio-desc-elementos">
+            <div class="desc-id-prod">ID</div>
+            <div class="desc-nombre-prod">Nombre</div>
+            <div class="desc-cantidad-prod">cantidad vendida</div>
+        </div>
+        <div class="contenedor-infos-productos">
+            {{#if rows}}
+            {{#each rows}}
+            <div class="contenedor-informacion-por-producto">
+                <div class="espacio-info-producto">
+                    <div class="id-producto-rep">{{id_art}}</div>
+                    <div class="nombre-producto-rep">{{nombre}}</div>
+                    <div class="cant-productos-rep">{{Cantidad}}</div>
+                </div>
+            </div>
+            {{/each}}
+            {{else}}
+            <h2>No hay datos</h2>
+            {{/if}}
+        </div>
+    </div>
+</div>

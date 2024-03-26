@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {{#if name}}
+    <title>Administrador</title>
+    {{else}}
+    <title>SIPCE</title>
+    {{/if}}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <!--Vinculo con la hoja de estilos-->
+    <link rel="stylesheet" href="/css/style.css">
+    <!--Icono de la página-->
+    <link rel="icon" href="/images/logoIco.ico">
+</head>
+
+<header>
+    <!--barra de navegación-->
+    {{#if name}}
+    <nav>
+        <div class="logo-inicio">
+            <!--Logo del sistema-->
+            <a href="/" class="enlace-inicio">
+                <img src="/images/logoIco.ico" alt="" class="logo">
+                <h1 class="marca-sipce">SIPCE</h1>
+            </a>
+            <!--Botón de enlace al inicio-->
+            <a href="/" class="btn-inicio">Inicio</a>
+        </div>
+        <!--Espacio en el que se encuentra lo relacionado con el 
+            usuario (administrador)-->
+        <ul class="espacio-usuario">
+            <!--Saludo para el usuario-->
+            <li class="hola-admin">
+                Hola {{name}}
+            </li>
+            <!--Foto de perfil del usuario-->
+            <li class="img-perfil">
+                <img src="/images/persona.png" class="foto-perfil" id="userIcon">
+            </li>
+        </ul>
+        <div class="menu-escondido" id="subMenu">
+            <div class="sub-menu">
+                <img src="/images/persona.png" alt="" class="icono_usuarioR">
+                <h3>{{name}}</h3>
+                <h3>Administrador</h3>
+                <a href="/logout" class="btn-cerrarSesion">Cerrar sesión</a>
+            </div>
+        </div>
+
+    </nav>
+    {{else}}
+    <nav>
+        <div class="logo-inicio">
+            <!--Logo de la cafeteria-->
+            <a href="/" class="enlace-inicio">
+                <img src="/images/logoIco.ico" alt="" class="logo">
+            </a>
+        </div>
+    </nav>
+    {{/if}}
+</header>
+
+<body>
+    {{{body}}}
+</body>
+
+<script src="/js/script.js"></script>
+
+</html>

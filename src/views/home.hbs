@@ -1,0 +1,245 @@
+<!--Contenedor para todos los recursos de la pantalla de inicio-->
+<div class="contenedor-principal">
+    <!--Contenedor para el carrusel-->
+    <div class="contenedor-carrusel-inicio">
+        <!--Carrusel que contiene las tarjetas para la administración de 
+                personal, de productos y las cuentas de clientes-->
+        <div class="carusel-administracion">
+            <!--Elementos del carrusel-->
+            <!--TARJETA PARA EL ENLACE A LA ADMINISTRACION DE PERSONAL-->
+            <div class="elemento-admi">
+                <!--Nombre e información del enlace-->
+                <div class="contenedor-info-tarjeta">
+                    <div class="esp-nombre-icono-personal">
+                        <img src="/images/icon-personal.png" class="icon-personal">
+                        <h2 class="t-personal">
+                            Personal
+                        </h2>
+                    </div>
+                    <p class="info-tarjeta-opcion">Administre el personal que trabaja en cada area del negocio, agregue,
+                        modifique y elimine</p>
+                    <!--Este enlace no es visible hasta que el usuario pase el cursor sobre la tarjeta-->
+                    <div class="cont-enlace-personal">
+                        <a href="/personal" class="enlace">Administrar</a>
+                    </div>
+                </div>
+            </div>
+            <!--TARJETA PARA EL ENLACE A LA ADMINISTRACION DE PRODCUTOS-->
+            <div class="elemento-admi">
+                <!--Nombre e información del enlace-->
+                <div class="contenedor-info-tarjeta">
+                    <div class="esp-nombre-icono-productos">
+                        <img src="/images/icon-productos.png" class="icon-productos">
+                        <h2 class="t-productos">
+                            Productos
+                        </h2>
+                    </div>
+                    <p class="info-tarjeta-opcion">Administre los productos del negocio, agregue, modifique y elimine
+                        productos</p>
+                    <!--Este enlace no es visible hasta que el usuario pase el cursor sobre la tarjeta-->
+                    <div class="cont-enlace-productos">
+                        <a href="/menu" class="enlace">Administrar</a>
+                    </div>
+                </div>
+            </div>
+            <!--TARJETA PARA EL ENLACE A LA SUSPENCION DE CUENTAS DE CLIENTES-->
+            <div class="elemento-admi">
+                <!--Nombre e información del enlace-->
+                <div class="contenedor-info-tarjeta">
+                    <div class="esp-nombre-icono-suspender">
+                        <img src="/images/icon-suspender.png" class="icon-suspender">
+                        <h2 class="t-cuentas-clientes">
+                            Suspender cuentas
+                        </h2>
+                    </div>
+                    <p class="info-tarjeta-opcion">Suspenda las cuentas de los clientes que no cumplan las normas del
+                        negocio</p>
+                    <!--Este enlace no es visible hasta que el usuario pase el cursor sobre la tarjeta-->
+                    <div class="cont-enlace-suspender">
+                        <a href="/suspender" class="enlace">Usar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Contenedor para las terjetas (administracion de personal y 
+        productos, reporte de personal y reporte de producto)-->
+    <div class="contenedor-tarjetas">
+        <!--///////////////////////////////////////////////////////////-->
+        <!--Tarjeta para la generacion de los distintos tipos de reportes 
+                acerca de personal-->
+        <!--///////////////////////////////////////////////////////////-->
+        <div class="tarjeta-reporte-personal">
+            <div class="titulo-icon-info">
+                <h2 class="titulo-gen-reporte">Reportes de personal</h2>
+                <!--Informacion sobre los reportes-->
+                <div class="tooltip-info">
+                    <img src="/images/icon-info.png" class="icon-info">
+                    <span class="tooltip-box">Genere reportes acerca del personal de cada area de la cafetería.
+                        <br>Para generar un reporte ingrese una fecha o un periodo de tiempo, seleccione un
+                        area de trabajo y de clic en el botón "Generar reporte".
+                    </span>
+                </div>
+            </div>
+            <form action="/repersonal" method="post" class="form-areas-trabajo">
+                <div class="contenido-reporte-personal">
+                    <h3 class="t-filtro-tiempo">Filtros de tiempo</h3>
+                    <div class="filtro-fecha">
+                        <h3 class="titulo-filtro-fecha">Fecha</h3>
+                        <input type="date" name="fecha1" required max="{{fecha}}" min="{{fechaa}}-{{fecham}}-{{fechad}}" class="fecha-personal" id="fechaPrincipal"
+                            onchange="validarFechaPrincipal1()" {{#if no}} disabled {{/if}}>
+                    </div>
+                    <div class="filtro-periodo">
+                        <h3 class="titulo-filtro-periodo">Periodo</h3>
+                        <div class="entradas-periodo">
+                            <input type="date" name="periodo1" required max="{{fecha}}" min="{{fechaa}}-{{fecham}}-{{fechad}}" class="fecha-uno-per" id="fechaUno" onchange="validarFechasPerido1()" {{#if no}} disabled {{/if}}>
+                            <input type="date" name="periodo2" required max="{{fecha}}" min="{{fechaa}}-{{fecham}}-{{fechad}}" class="fecha-dos-per" id="fechaDos" disabled required>
+                        </div>
+                    </div>
+                    <!--El usuario elige el area de trabajo sobre el cual generará el 
+                            reporte-->
+                    <div class="selec-tipo-reporte">
+                        <h3 class="t-areas-trabajo">Areas de trabajo</h3>
+                        <ul class="selec-op-tipo-reporte" required>
+                            <li class="opcion-reporte">
+                                <label>
+                                    <input type="radio" class="int-opcion-reporte" value="co"
+                                        name="SelecReportePersonal" required>
+                                    Cocina
+                                </label>
+                            </li>
+                            <li class="opcion-reporte">
+                                <label>
+                                    <input type="radio" class="int-opcion-reporte" value="ca"
+                                        name="SelecReportePersonal" required>
+                                    Caja
+                                </label>
+                            </li>
+                            <li class="opcion-reporte">
+                                <label>
+                                    <input type="radio" class="int-opcion-reporte" value="en"
+                                        name="SelecReportePersonal" required>
+                                    Entrega
+                                </label>
+                            </li>
+                        </ul>
+                    </div>
+                    <!--Botón para generar el reporte-->
+                    <div class="generar-reporte">
+                        <input type="submit" value="Generar Reporte" class="btn-gen-rep-personal" id="btnPersonal">
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <!--///////////////////////////////////////////////////////////-->
+        <!--Tarjeta para la generacion de los distintos tipos de reportes 
+                acerca de los productos -->
+        <!--///////////////////////////////////////////////////////////-->
+        <div class="tarjeta-reporte-productos">
+            <div class="titulo-icon-info">
+                <h2 class="titulo-gen-reporte">Reportes de productos</h2>
+                <!--Informacion sobre los reportes-->
+                <div class="tooltip-info">
+                    <img src="/images/icon-info.png" class="icon-info">
+                    <span class="tooltip-box">Genere reportes acerca de los productos que hay en la cafetería.
+                        <br>Para generar un reporte ingrese una fecha o un periodo de tiempo, seleccione un
+                        tipo de reporte y de clic en el botón "Generar reporte".
+                    </span>
+                </div>
+            </div>
+            <form action="/reprocto" method="post" class="form-reporte-productos">
+                <div class="contenido-reporte-productos">
+                    <h3 class="t-filtro-tiempo">Filtros de tiempo</h3>
+                    <div class="filtro-fecha">
+                        <h3 class="titulo-filtro-fecha">Fecha</h3>
+                        <input type="date" name="fecha1" required max="{{fecha}}" min="{{fechaa}}-{{fecham}}-{{fechad}}" class="fecha-productos" id="fechaPrincipal2" {{#if no}} disabled {{/if}}
+                            onchange="validarFechaPrincipal2()">
+                    </div>
+                    <div class="filtro-periodo">
+                        <h3 class="titulo-filtro-periodo">Periodo</h3>
+                        <div class="entradas-periodo">
+                            <input type="date" name="periodo1" required max="{{fecha}}" min="{{fechaa}}-{{fecham}}-{{fechad}}" class="fecha-uno-prod" id="fechaUno2" onchange="validarFechasPerido2()" {{#if no}} disabled {{/if}}>
+                            <input type="date" name="periodo2" required max="{{fecha}}" min="{{fechaa}}-{{fecham}}-{{fechad}}" class="fecha-dos-prod" id="fechaDos2" disabled required>
+                        </div>
+                    </div>
+                    <!--El usuario elige la opcion para generar el reporte-->
+                    <div class="selec-tipo-reporte">
+                        <h3 class="t-opciones-reporte-productos">Opciones para generar reporte</h3>
+                        <ul class="selec-op-tipo-reporte">
+                            <li class="opcion-reporte">
+                                <label>
+                                    <input type="radio" class="int-opcion-reporte" value="ca"
+                                        name="SelecReporteProducto">
+                                    Reporte por cantidad
+                                </label>
+                            </li>
+                            <li class="opcion-reporte">
+                                <label>
+                                    <input type="radio" class="int-opcion-reporte" value="in"
+                                        name="SelecReporteProducto">
+                                    Reporte por total de ingreso
+                                </label>
+                            </li>
+                        </ul>
+                    </div>
+                    <!--Botón para generar el reporte-->
+                    <div class="generar-reporte">
+                        <input type="submit" value="Generar Reporte" class="btn-gen-rep-productos" id="btnProductos">
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <!--///////////////////////////////////////////////////////////-->
+        <!--Tarjeta para la generacion de los distintos tipos de reportes 
+                acerca de las ventas -->
+        <!--///////////////////////////////////////////////////////////-->
+        <div class="tarjeta-reporte-ventas">
+            <div class="titulo-icon-info">
+                <h2 class="titulo-gen-reporte">Reportes de venta</h2>
+                <!--Informacion sobre los reportes-->
+                <div class="tooltip-info">
+                    <img src="/images/icon-info.png" class="icon-info">
+                    <span class="tooltip-box">Genere reportes sobre las ventas en la cafetería.
+                        <br>Para generar el reporte ingrese una fecha o un periodo de tiempo
+                        y de clic en el botón "Generar reporte".
+                    </span>
+                </div>
+            </div>
+            <form action="/ventaFecha" method="post" class="form-reportes-venta">
+                <div class="contenido-reporte-ventas">
+                    <div class="espacio-uno-ventas">
+                        <h3 class="t-filtro-tiempo">Filtros de tiempo</h3>
+                        <div class="filtro-fecha">
+                            <h3 class="titulo-filtro-fecha">Fecha</h3>
+                            <input type="date" name="fecha1" required max="{{fecha}}" min="{{fechaa}}-{{fecham}}-{{fechad}}" class="fecha-venta" id="fechaPrincipal3" {{#if no}} disabled {{/if}}
+                                onchange="validarFechaPrincipal3()">
+                        </div>
+                        <div class="filtro-periodo">
+                            <h3 class="titulo-filtro-periodo">Periodo</h3>
+                            <div class="entradas-periodo">
+                                <input type="date" name="periodo1" required max="{{fecha}}" min="{{fechaa}}-{{fecham}}-{{fechad}}" class="fecha-uno-venta" id="fechaUno3" {{#if no}} disabled {{/if}}
+                                    onchange="validarFechasPerido3()">
+                                <input type="date" name="periodo1" required max="{{fecha}}" min="{{fechaa}}-{{fecham}}-{{fechad}}" class="fecha-dos-venta" id="fechaDos3" disabled required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="espacio-dos-ventas">
+                        <div class="generar-reporte">
+                            <input type="submit" value="Generar Reporte" class="btn-gen-rep-ventas" id="btnVentas">
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{{#if no}}
+ <script>
+     window.onload = function () {
+    window.alert("{{no}}")
+     }
+ </script>
+ {{/if}}

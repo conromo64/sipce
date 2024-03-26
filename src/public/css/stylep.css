@@ -1,0 +1,439 @@
+* {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    font-family: 'Hind', sans-serif;
+}
+
+body { 
+    background-color: #e4e3e3;
+}
+
+nav {
+    top: 0;
+    width: 100%;
+    background: rgb(13, 59, 111);
+    display: flex;
+    justify-content: space-between;
+    position: fixed;
+    align-items: center;
+    height: 80px;
+    padding: 0 5%;
+}
+
+
+
+/*Configuración del logo del sistema*/
+.logo {
+    height: 60px;
+}
+
+nav .marca {
+    align-items: center;
+}
+
+
+
+
+
+
+section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    flex-flow: column;
+    margin-top: 150px;
+}
+
+
+
+.container {
+    background-color: white;
+    width: 630px;
+    height: 500px;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow:  5px 10px 15px 15px rgb(214, 214, 214);
+    margin-top: -200px;
+    z-index: 2;
+}
+
+
+
+
+.forInput {
+    position: relative;
+    margin-top: 30px; 
+    margin-bottom: -3px;
+    position: relative; 
+}
+
+.forInput input {
+    padding: 15px;
+    font-size: 18px;
+    border-radius: 5px; 
+    border: #acacac solid 2px;
+    background-color: transparent;
+    color: #060404;
+    font-size: 90%;
+    transition: 0.15s all ease;
+    width: 370px;
+    margin-left: 110px; 
+    z-index: 1;
+}
+
+.forInput input:focus {
+    border-color: rgb(13, 59, 111);
+}
+
+.forInput input::placeholder {
+    color: transparent;
+}
+
+.forInput .labelInp {
+    position: absolute;
+    top: 16px; 
+    left: 115px;
+    font-size: 16px;
+    padding: 0 10px;
+    color: #acacac;
+    pointer-events: none;
+    transition: 0.15s all ease;
+}
+
+.forInput input:focus + .labelInp,
+.forInput input:not(:placeholder-shown) + .labelInp {
+    transform: translate(5px, -22px);
+    background-color: #ffffff;
+    font-size: 16px;
+    color: #000000;
+}
+
+.laimg {
+    margin-top: 20px ; 
+    margin-left: 230px;
+    width: 150px;
+}
+
+p{
+    margin-top: 10px;
+    margin-left: 150px;
+    font-weight: 1000;
+}
+
+h2{
+    margin-top: 10px;
+    margin-left: 220px;
+    font-weight: 1000;
+}
+
+
+.btn-inicio {
+    position: absolute;
+    margin-top: 40px; 
+    margin-left: 210px; 
+    background: rgb(13, 59, 111);
+    color: #fff;
+    padding: 15px;
+    width: 200px;
+    border: none;
+    font-size: 125%;
+    font-weight: 1000;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+
+
+/*esto es para lo de contraseña*/
+.verContra {
+    position: absolute;
+    left: 470px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    background-image: url('/images/oculto.png');
+    background-size: cover;
+    cursor: pointer;
+}
+
+.password-hidden {
+    background-image: url('/images/oculto.png');
+}
+
+.password-visible {
+    background-image: url('/images/ver.png');
+}
+
+@media only screen and (min-width: 300px) and (max-width: 379px){
+    .container{
+        width: 120%;
+        margin-left: -18%;
+    }
+
+    .forInput {
+        margin: 30px 0; 
+    }
+
+    .forInput input {
+        width: 85%; 
+        margin: 0; 
+        margin-left: 2%;
+    }
+
+    .laimg {
+        position: static; 
+        margin-top: 20px; 
+        text-align: center;
+        margin-left: 25%;
+    }
+
+    h2 {
+        position: static;
+        font-size: 120%;
+        margin-top: 10px; 
+        margin-left: 25%;
+    }
+
+    p{
+        position: static;
+        font-size: 120%;
+        margin-top: 10px; 
+        margin-left: 25%;
+    }
+
+    .labelInp{
+        margin-left: -30%;
+    }
+
+    .btn-inicio {
+        position: static; 
+        margin: 30px 0;
+        margin-top: -5px;
+        margin-left: 16%;
+    }
+
+    .verContra {
+        left: 65%; 
+        margin-top: -10px; 
+        margin-left: 40px;
+        transform: none; 
+        display: block; 
+    }
+}
+
+@media only screen and (min-width: 250px) and (max-width: 299px){
+    .container{
+        width: 90%;
+        margin-left: -3%;
+    }
+
+    .forInput {
+        margin: 30px 0; 
+    }
+
+    .forInput input {
+        width: 85%; 
+        margin: 0; 
+        margin-left: 2%;
+    }
+
+    .laimg {
+        position: static; 
+        margin-top: 20px; 
+        text-align: center;
+        margin-left: 18%;
+    }
+
+    h2 {
+        position: static;
+        font-size: 120%;
+        margin-top: 10px; 
+        margin-left: 20%;
+    }
+    p{
+        position: static;
+        font-size: 120%;
+        margin-top: 1px; 
+        margin-left: 20%;
+    }
+
+    .labelInp{
+        margin-left: -45%;
+    }
+
+    .btn-inicio {
+        position: static; 
+        margin: 30px 0;
+        margin-top: -5px;
+        margin-left: 7%;
+    }
+
+    .verContra {
+        left: 65%; 
+        margin-top: -10px; 
+        margin-left: 45px;
+        transform: none; 
+        display: block; 
+    }
+}
+
+
+
+
+@media only screen and (min-width: 380px) and (max-width: 550px){
+    body {
+        background-color: #f2f2f2; 
+    }
+
+    nav {
+        flex-direction: column; 
+        text-align: center;
+        width: 100%;
+    }
+
+    section{
+        margin-top: 32% !important;
+        margin-left: -12%;
+
+    }
+
+    .logo {
+        margin: 10px 0; 
+        margin-left: -310px;
+    }
+
+    
+    .container {
+        width: 120%;
+        
+        
+        
+       
+        
+    }
+
+    .forInput {
+        margin: 30px 0; 
+    }
+
+    .forInput input {
+        width: 70%; 
+        margin: 0; 
+        margin-left: 10%;
+    }
+
+    .laimg {
+        position: static; 
+        margin-top: 20px; 
+        text-align: center;
+        margin-left: 80px;
+    }
+
+    h2 {
+        position: static; 
+        margin-top: 10px; 
+        margin-left: 25%;
+    }
+    p{
+        position: static; 
+        margin-top: 10px; 
+        margin-left: 25%;
+    }
+
+    .labelInp{
+        margin-left: -70px;
+    }
+
+    .btn-inicio {
+        position: static; 
+        margin: 30px 0;
+        margin-top: -5px;
+        margin-left: 20%;
+    }
+
+    .verContra {
+        left: 65%; 
+        margin-top: -10px; 
+        margin-left: 40px;
+        transform: none; 
+        display: block; 
+    }
+}
+
+
+@media only screen and (min-width: 765px) and (max-width: 900px){
+    section{
+        margin-top: -10%;
+    }
+
+}
+
+
+@media only screen and (min-width: 901px) and (max-width: 1023px){
+    section{
+        margin-top: -15%;
+    }
+}
+
+
+@media(max-width: 1024px){
+    .container{
+        margin-top: -110% !important;
+    }
+
+    section{
+        margin-top: 55%;
+    }
+}
+
+
+@media only screen and (min-width: 1300px) and (max-width: 1400px){
+    section{
+        margin-top: 20%;
+    }
+}
+
+
+@media only screen and (min-width: 600px) and (max-width: 700px){
+    .container{
+        width: 195%;
+       
+    }
+
+    section{
+        margin-top: 25%;
+        margin-left: -22%;
+    }
+
+    .forInput input{
+        margin-left: 6%;
+        width: 80%;
+    }
+    .labelInp{
+        margin-left: -17%;
+    }
+
+    .verContra{
+        margin-left: -13%;
+    }
+
+    h2{
+        margin-left: 35%;
+    }
+p{
+        margin-left: 35%;
+    }
+    .container .laimg{
+        margin-left: 35%;
+    }
+
+    .btn-inicio{
+        margin-left: 23%;
+    }
+    
+}

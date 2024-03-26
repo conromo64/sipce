@@ -1,0 +1,71 @@
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+    google.charts.load('current', { 'packages': ['bar'] });
+    google.charts.setOnLoadCallback(drawStuff);
+
+    function drawStuff() {
+        var data = new google.visualization.arrayToDataTable([
+            ['Fecha', 'Total de compra'],
+            {{#each rowss}}
+            ["{{Fecha}}", "${{Total}}"],
+            {{/each}}
+        ]);
+
+        var options = {
+            title: 'Chess opening moves',
+            width: 900,
+            bars: 'vertical', // Required for Material Bar Charts.
+            axes: {
+                x: {
+                    0: { side: 'top', label: 'Total de compra' } // Top x-axis.
+                }
+            },
+            bar: { groupWidth: "90%" }
+        };
+
+        var chart = new google.charts.Bar(document.getElementById('top_x_div'));
+        chart.draw(data, options);
+    };
+</script>
+<div class="contenedor-principal-rep-venta-periodo">
+    <div class="contenedor-uno-reportes" style="margin-bottom: 40px;">
+        <div class="Info-reporte-venta-periodo">
+            <h2 class="titulo-reporte-generado">Reporte de ventas</h2>
+            <div class="info-periodo-selec-venta">
+                <h3 class="elemento-info-periodo">Periodo</h3>
+                <div class="espacio-info-fechas-periodo-venta">
+                    <div class="fecha-uno-selec-v-rep">{{date1}}</div>
+                    <div class="fecha-dos-selec-v-rep">{{date2}}</div>
+                </div>
+            </div>
+        </div>
+        <div class="espacio-desc-elementos">
+            <div class="desc-fecha-v">Fecha</div>
+            <div class="desc-cliente-v">Cliente</div>
+            <div class="desc-total-v">Total de compra</div>
+        </div>
+        <div class="contenedor-infos-folios-v">
+            {{#if rows}}
+            {{#each rows}}
+            <div class="contenedor-informacion-folio-vent">
+                <div class="espacio-v-info-folio">
+                    <div class="fecha-folio-rep-v">{{Fecha}}</div>
+                    <div class="cliente-rep-v">{{correoUsuario}}</div>
+                    <div class="total-comp-rep-v">${{Total}}</div>
+                </div>
+            </div>
+            {{/each}}
+            <div class="contenedor-informacion-folio-vent">
+                <div class="espacio-v-info-folio">
+                    <div class="fecha-folio-rep-v">Total</div>
+                    <div class="cliente-rep-v">Vendidos</div>
+                    <div class="total-comp-rep-v">${{supertotal}}</div>
+                </div>
+            </div>
+            {{else}}
+            <h1>no hay nada</h1>
+            {{/if}}
+        </div>
+    </div>
+<div id="top_x_div" style="width: 90%; margin:auto; "></div>
+</div>

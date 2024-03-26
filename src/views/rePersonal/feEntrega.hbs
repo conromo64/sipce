@@ -1,0 +1,31 @@
+<div class="contenedor-principal-rep-entrega-fecha">
+    <div class="contenedor-uno-reportes">
+        <div class="Info-reporte-p-entrega">
+            <h2 class="titulo-reporte-generado">Reporte de personal Entrega</h2>
+            <div class="info-fecha-selec">
+                <h3 class="elemento-info-fecha">Fecha</h3>
+                <div class="fecha-selec-p-rep">{{date1}}</div>
+            </div>
+        </div>
+        <div class="espacio-desc-elementos">
+            <div class="desc-id">ID</div>
+            <div class="dec-nombre">Nombre</div>
+            <div class="desc-pedidos-entr">Pedidos entregados</div>
+        </div>
+        <div class="contenedor-infos-empleados">
+            {{#if rows}}
+            {{#each rows}}
+            <div class="contenedor-informacion-por-empleado">
+                <div class="espacio-p-info-empleado">
+                    <div class="id-empleado-rep">{{idUser}}</div>
+                    <div class="nombre-empleado-rep">{{Nombre}}</div>
+                    <div class="pedidos-prep-empleado-rep">{{Total}}</div>
+                </div>
+            </div>
+            {{/each}}
+            {{else}}
+            <h2>No hay datos</h2>
+            {{/if}}
+        </div>
+    </div>
+</div>

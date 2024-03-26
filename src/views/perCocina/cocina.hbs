@@ -1,0 +1,80 @@
+<div class="contenedor_general">
+    <div class="contenedor_izquierdo">
+        <div class="nombre_pedidos_pendientes">
+            Pedidos Pendientes
+        </div>
+        <div class="caja_info-ppe">
+            <div class="caja_folio-ppe">
+                Folio
+            </div>
+            <div class="caja_total-ppe">
+                Total
+            </div>
+            <div class="caja_acciones-ppe">
+                Acciones
+            </div>
+        </div>
+        <!--Caja giganteee de pedidos-->
+        <div class="caja-pedidos-ppe" id="pedPro">
+            {{#if ord}}
+            {{#each ord}}
+            <div class="pedido_pendiente">
+                <div class="espacio_folio-ppe">
+                    {{Folio}}
+                </div>
+                <div class="espacio_total-ppe">
+                    ${{Precio}}
+                </div>
+                <div class="espacio_acciones-ppe">
+                    <a href="/pedidoOrd/{{Folio}}" class="btn-ver_pedido-ppe">Ver pedido</a>
+                </div>
+            </div>
+            {{/each}}
+            {{else}}
+            <div class="pedido_pendiente">
+                <h2>No hay pedidos pendientes</h2>
+            </div>
+            {{/if}}
+        </div>
+
+    </div>
+
+    <div class="contenedor_derecho">
+        <div class="nombre_pedidos_proceso" id="ped_proceso">
+            Pedidos en proceso
+        </div>
+        <div class="caja_info-ppr">
+            <div class="caja_folio-ppr">
+                Folio
+            </div>
+            <div class="caja_total-ppr">
+                Total
+            </div>
+            <div class="caja_acciones-ppr">
+                Acciones
+            </div>
+        </div>
+        <div class="caja-pedidos-ppr">
+            {{#if ped}}
+            {{#each ped}}
+            <div class="pedido_proceso">
+                <div class="espacio_folio-ppr">
+                    {{Folio}}
+                </div>
+                <div class="espacio_total-ppr">
+                    ${{Precio}}
+                </div>
+                <div class="espacio_acciones-ppr">
+                    <a href="/pedidoPre/{{Folio}}" class="btn-ver_pedido-ppr">Ver pedido</a>
+                </div>
+            </div>
+            {{/each}}
+            {{else}}
+            <div class="pedido_proceso">
+                <h2>No hay pedidos pendientes</h2>
+            </div>
+            {{/if}}
+        </div>
+    </div>
+
+</div>

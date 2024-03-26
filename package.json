@@ -1,0 +1,27 @@
+{
+  "name": "sipcea",
+  "version": "1.0.0",
+  "description": "Cambios en los hbs",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/app.js",
+    "dev": "nodemon src/app.js"
+  },
+  "author": "FARD",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "body-parse": "^0.1.0",
+    "express": "^4.18.2",
+    "express-handlebars": "^7.0.1",
+    "express-myconnection": "^1.0.4",
+    "express-session": "^1.17.3",
+    "handlebars-helpers": "^0.10.0",
+    "multer": "^1.4.5-lts.1",
+    "mysql": "^2.18.1",
+    "mysql2": "^3.6.2",
+    "nodemon": "^2.0.20",
+    "socket.io": "^4.7.2",
+    "socket.io-client": "^4.7.2"
+  }
+}

@@ -1,0 +1,30 @@
+<script src="/js/filtro.js"></script>
+<style>
+    .filtro {
+        display: none;
+    }
+</style>
+
+<div class="contenedor_general-menu">
+
+    {{#each per}}
+    <div id="articulos" class="info-producto">
+        <img src="{{image}}" alt="" class="img_producto">
+        <h3 id="articulo" class="nombre-producto">
+            {{nombre}}
+        </h3>
+        {{#if validacion}}
+        <div class="btnAgregar1">
+            <a href="#"><button class="btn-num">{{Cantidad}}</button></a>
+            <a href="/agregau/{{Folio}}/{{id_art}}"><button class="btn-s">+</button></a>
+        </div>
+        {{else}}
+        <div class="btnAgregar">
+            <a href="/agregan/{{Folio}}/{{id_art}}/{{precio}}"><button>Agregar ${{precio}}</button></a>
+        </div>
+        {{/if}}
+    </div>
+    {{/each}}
+
+
+</div>
